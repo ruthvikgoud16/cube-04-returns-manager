@@ -9,7 +9,6 @@
 | Root evaluation note | [../../EVALUATION.md](../../EVALUATION.md) and [../../EVALUATION.pdf](../../EVALUATION.pdf) |
 | Demo script | [demo-script.md](demo-script.md) and [demo-script.pdf](demo-script.pdf) |
 | Reviewer walkthrough | https://rtn-returns-manager.vercel.app/demo |
-| Demo video | [returns-desk-demo.mp4](returns-desk-demo.mp4) and [returns-desk-narrated.mp4](returns-desk-narrated.mp4) |
 | Policy consistency | [disposition-policy-consistency.md](disposition-policy-consistency.md) and [disposition-policy-consistency.pdf](disposition-policy-consistency.pdf) |
 | LinkedIn draft | [linkedin-post.md](linkedin-post.md). Generation prompt: [linkedin-prompt.md](linkedin-prompt.md). Screenshots: [linkedin/](linkedin/) |
 | Checklist | [SUBMISSION_CHECKLIST.md](SUBMISSION_CHECKLIST.md) |

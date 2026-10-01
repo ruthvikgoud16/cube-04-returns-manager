@@ -16,6 +16,4 @@ Open `http://localhost:8787` or the public desk. The saved cards are in the page
 
 The reviewer page is https://rtn-returns-manager.vercel.app/demo . Start demo begins the nine steps. Next and Back move the real desk: sign in as `org_demo_alpha`, then open `#show-019` and `#show-001`. Those buttons draw the saved cards. They do not call the model. The page is the walkthrough, not a video.
 
-The recorded clips for the form are `submissions/ruthvikgoud16/returns-desk-demo.mp4` and `submissions/ruthvikgoud16/returns-desk-narrated.mp4`. They are not what the demo page plays.
-
-`submissions/ruthvikgoud16/returns-desk-demo-ruthvik.mp4` uses the cloned voice from `generated-audio.wav`. Captions sit in a bar under the desk. That clip covers the opening, the one model call and `policy_v1`, and the saved RTN-019 restock card. It does not speak the RTN-001 or frozen-rate lines, because those lines were not in the wav. The earlier demo files are still in place.
+The submission demo is the live walkthrough. It is not a video file in this repository.
