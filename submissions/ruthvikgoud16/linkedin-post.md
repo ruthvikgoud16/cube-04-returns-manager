@@ -2,6 +2,8 @@
 
 Paste this only after you pick the official company pages for the two tags and the organiser hashtags. The handbook says to use the official CUBE hashtags the organisers communicated. Those hashtags are not printed in the handbook, so they are a placeholder here.
 
+To generate a post from measured facts only, paste `submissions/ruthvikgoud16/linkedin-prompt.md` into a model. Attach the real desk screenshots in `submissions/ruthvikgoud16/linkedin/` (also copied to `/Users/ruthvikgoud/Downloads/linkedin-rtn/`). This draft is not published.
+
 ---
 
 I built the Returns Manager agent for CUBE 2026, the Round 2 Returns track.
