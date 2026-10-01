@@ -1,0 +1,9 @@
+
+> rtn-returns-manager@0.1.0 eval:score
+> ts-node eval/score.ts
+
+Agreed cases: 43 of 50. Disagreements are not scored.
+Disposition was not labeled, so it is not scored.
+identity: matched 37/43 (86.0%), uncertain 1/43 (2.3%), false positives 0, false negatives 0
+completeness: matched 30/43 (69.8%), uncertain 5/43 (11.6%), false positives 2, false negatives 0
+condition grade: matched 17/43 (39.5%), uncertain 0/43 (0.0%)

@@ -10,6 +10,41 @@
 1. [`GITHUB-GUIDE.md`](GITHUB-GUIDE.md) explains how to fork the repository, set it up, build and push your work.
 2. [`RULES.md`](RULES.md) covers the repository and engineering rules.
 
+## This fork
+
+ruthvikgoud16. One Claude vision call grades identity, completeness, and condition. `policy_v1` chooses the disposition afterwards. A bad frame or a failed call is saved as `pending_review`. It is not dropped, and it is not restocked.
+
+```sh
+npm install
+npm test
+npm run dev
+```
+
+Open `http://localhost:8787`, enter as `org_demo_alpha`, then again in a private window as `org_demo_bravo`. Set `ANTHROPIC_API_KEY` before expecting a real grade. Without it, the capture is still saved and held for a person.
+
+`npm run db:up` starts Postgres. Point `DATABASE_URL` at `postgres://rtn_app:rtn_app@localhost:5432/rtn` and run `npm run test:tenancy`. The app role is not a superuser, and row-level security is forced.
+
+`npm run eval:predict` runs the 12 photographed development cases. Those 12 are not the scored set. `npm run eval:score` reads `eval/labels.csv` and `collection/export/fifty/results.json`. It prints numbers only when two labelers are present and that file has 50 rows. That print uses every row, including three cases with no model output, so the submission figures are the ones in [`submissions/ruthvikgoud16/eval-report.md`](submissions/ruthvikgoud16/eval-report.md). The `expected_disposition` values in the fixture file are developer notes, not the scored labels.
+
+Architecture: [`ARCHITECTURE.md`](ARCHITECTURE.md). The `content_hash` is a SHA-256 of the canonical JSON. It shows whether a copy changed. It does not make the record immutable.
+
+## This fork — what was measured
+
+On the 40 agreed cases with valid model output, identity matched 92.5% (37/40), completeness 75.0% (30/40), and condition 42.5% (17/40). Condition at 42.5% is the condition-match rate. It is not an overall accuracy. Identity false positives and false negatives were 0. Completeness had 2 false positives and 0 false negatives. Seven cases were excluded because the two labelers disagreed. RTN-017, RTN-026, and RTN-032 had no image files in the listed photo folders, so the model was not called. Disposition was not human-labeled, so the 38 restock, 8 pending-review, and 1 refurbish outcomes are not a score. The full table, method, and limits are in the evaluation report. The copy is frozen under `eval/frozen/2026-10-01T1015Z/`.
+
+## How a return is processed
+
+1. The operator opens the phone page, signs in as `org_demo_alpha` or `org_demo_bravo`, and submits photos plus the product name and parts list.
+2. The quality gate drops unusable frames. Usable frames go to one Claude vision call (`claude-sonnet-4-5` unless `ANTHROPIC_MODEL` overrides it). That call grades identity, completeness, and condition together. It does not choose a disposition.
+3. Zod checks the tool output. `policy_v1` then sets the disposition. Any UNCERTAIN check, or an identity mismatch, becomes `pending_review`. Confidence is stored and never turns UNCERTAIN into PASS. `dispose` is not produced.
+4. The capture is stored as an evidence record scoped to the organisation on the session cookie. A model error, a timeout, a bad schema, or no usable photo still saves the record as `pending_review`. The stored schema is `rtn-0.1-provisional`. `GET /v1/records` projects that record into evidence-contract 1.1 for the caller’s organisation. There is no presigned upload endpoint and no public deployment URL in this fork.
+
+Setup is `.env.example`: `ANTHROPIC_API_KEY`, `SESSION_SECRET`, optional `DATABASE_URL`, `PORT` (8787), and `BLOB_DIR`. Without `DATABASE_URL`, records stay in memory and images stay under `BLOB_DIR`. Postgres row-level security is the path in `npm run db:up` and `npm run test:tenancy`.
+
+Assumptions: identity is visual likeness to the named product, not a barcode. A missing SKU or ASIN stays `UNKNOWN`. A required part that is out of frame is UNCERTAIN, not FAIL. Amazon condition names follow the published used scale, and a photo does not prove that a device functions.
+
+Limits: condition matching on the 40 cases is 42.5%. The result does not show that the same rates would hold on another set. Three evaluation folders contained no images. The app is a local operator desk, not a warehouse deployment.
+
 ---
 
 ## Your problem statement: Returns Manager

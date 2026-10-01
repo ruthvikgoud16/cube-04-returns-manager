@@ -1,0 +1,7 @@
+Frozen 2026-10-01T10:15Z. Do not edit these copies. Do not retune the model against them.
+
+results.json is the final 50-case grade file.
+labels.csv stacks eval/labels-rishik-goud.csv and eval/labels-lasya.csv.
+score-stdout.txt is the unmodified `npm run eval:score` print. It uses all 50 rows, so its 43-case denominators include RTN-017, RTN-026, and RTN-032, which have no model output. The submission report uses the 40 agreed cases that have a model grade.
+
+SHA256SUMS covers the files in this directory except itself.

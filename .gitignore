@@ -7,3 +7,8 @@ __pycache__/
 .venv/
 venv/
 .DS_Store
+dist/
+data/blobs/
+eval/out/
+collection/.state/
+collection/export/

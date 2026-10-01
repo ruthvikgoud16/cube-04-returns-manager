@@ -1,0 +1,51 @@
+case_id,labeler,identity,completeness,amazon_condition,disposition,evidence_sufficient,product_name,sku,asin,note
+RTN-001,Rishik Goud,PASS,UNCERTAIN,used_very_good,,,"Samsung Book laptop, silver, 256 GB",UNKNOWN,UNKNOWN,Laptop and lid logo match. A cable is in one photo. The adapter and box are not clearly shown.
+RTN-002,Rishik Goud,PASS,PASS,used_very_good,,,"OnePlus Pad Wi-Fi, Halo Green",UNKNOWN,UNKNOWN,"Tablet, box, cable, and adapter are visible."
+RTN-003,Rishik Goud,PASS,PASS,used_very_good,,,"Zebronics Jukebar 9800, black",UNKNOWN,UNKNOWN,"Soundbar and subwoofer are visible, with a remote and power cable."
+RTN-004,Rishik Goud,PASS,PASS,used_very_good,,,"GOVO GoSurround 940, 2.1, black",UNKNOWN,UNKNOWN,"Bar, satellite/sub, remote, and box are in the photos."
+RTN-005,Rishik Goud,UNCERTAIN,UNCERTAIN,unknown,,,"boAt PartyPal 60, black",UNKNOWN,UNKNOWN,One photo set is a tall party tower. Another is a smaller horizontal boAt party speaker with its box. They are not the same unit.
+RTN-006,Rishik Goud,PASS,UNCERTAIN,used_very_good,,,"boAt Airdopes Alpha, black",UNKNOWN,UNKNOWN,"Buds, case, and box match. Charging cable and spare tips are not clearly shown."
+RTN-007,Rishik Goud,PASS,PASS,used_good,,,"Hindware Atlantic instant water heater, 3L",UNKNOWN,UNKNOWN,"Unit is installed on the wall, with pipes, cord, and the retail box. Used, casing intact."
+RTN-008,Rishik Goud,PASS,FAIL,used_very_good,,,"Apple MacBook Air, silver",UNKNOWN,UNKNOWN,"Laptop lid, underside, and MacBook Air box are visible. Cable and adapter are not in the photos. Small mark on the underside."
+RTN-009,Rishik Goud,PASS,UNCERTAIN,used_good,,,"Apple AirPods, white",UNKNOWN,UNKNOWN,"Case and two earbuds are visible, with light scuffs on the case. Cable and box are not in the usable photos."
+RTN-010,Rishik Goud,UNCERTAIN,PASS,used_good,,,Noise smartwatch,UNKNOWN,UNKNOWN,"A rose-gold watch, strap, and magnetic cable are visible. The box photo looks like a black watch, so the colour does not line up. Finish is chipped on the case."
+RTN-011,Rishik Goud,PASS,PASS,used_very_good,,,Wildcraft hiking backpack,UNKNOWN,UNKNOWN,"Pack, straps, buckles, and a rain cover are visible. Light fabric creasing."
+RTN-012,Rishik Goud,PASS,PASS,used_very_good,,,Portronics Vader 2.0 wired gaming mouse,UNKNOWN,UNKNOWN,"Mouse, cable, box, and manual match the name. Box is worn; the mouse looks clean and lights up."
+RTN-013,Rishik Goud,UNCERTAIN,PASS,used_good,,,"Boult Drift smartwatch, blue",UNKNOWN,UNKNOWN,"A blue watch is shown, and a black watch is also shown with the box and manual."
+RTN-014,Rishik Goud,PASS,PASS,used_very_good,,,vivo Buds,UNKNOWN,UNKNOWN,"Case, earbuds, tips, and vivo Buds box are visible."
+RTN-015,Rishik Goud,PASS,PASS,used_very_good,,,"Dell monitor, about 24 inch",UNKNOWN,UNKNOWN,"Monitor, stand, cables, and Dell box are visible."
+RTN-016,Rishik Goud,PASS,UNCERTAIN,used_good,,,UBON Black Active smartwatch,UNKNOWN,UNKNOWN,Watch and yellow retail box match. A charger is not clearly visible. Box shows scuffs.
+RTN-017,Rishik Goud,PASS,PASS,used_very_good,,,Apple iPhone,UNKNOWN,UNKNOWN,"Light blue iPhone, box, cable, adapter, and papers are visible."
+RTN-018,Rishik Goud,PASS,PASS,used_very_good,,,Apple iPhone,UNKNOWN,UNKNOWN,"Orange iPhone, cable, and inner packaging are visible."
+RTN-019,Rishik Goud,PASS,PASS,used_very_good,,,NOVA hair straightener,UNKNOWN,UNKNOWN,"Straightener, cord, and NOVA box match."
+RTN-020,Rishik Goud,PASS,PASS,used_good,,,HP laptop,UNKNOWN,UNKNOWN,"HP laptop, charger, and cables are visible. Lid has stickers and some marks."
+RTN-021,Rishik Goud,PASS,UNCERTAIN,used_like_new,,,Boult Mustang wireless headphones,UNKNOWN,UNKNOWN,Headphones and Mustang box match. A separate cable is not laid out clearly.
+RTN-022,Rishik Goud,PASS,PASS,used_very_good,,,Mivi soundbar,UNKNOWN,UNKNOWN,"Bar, subwoofer in the carton, adapter, and remote are visible."
+RTN-023,Rishik Goud,PASS,UNCERTAIN,used_very_good,,,Hammer Drop X1 speaker,UNKNOWN,UNKNOWN,Hammer speaker and Drop X1 box match. A charging cable is not clearly shown.
+RTN-024,Rishik Goud,PASS,PASS,used_very_good,,,Reebok running shoes,UNKNOWN,UNKNOWN,Both white shoes and the Reebok box are visible. Box is a bit crushed.
+RTN-025,Rishik Goud,PASS,PASS,used_like_new,,,MakeMeeBold automatic hair curler,UNKNOWN,UNKNOWN,"Curler, cord, guard, and box are visible."
+RTN-026,Rishik Goud,PASS,PASS,used_very_good,,,NOVA professional hair dryer,UNKNOWN,UNKNOWN,"Dryer, box marked 2000 watts, and attachments are visible."
+RTN-027,Rishik Goud,PASS,PASS,used_like_new,,,Beardo Chrome Beast trimmer,UNKNOWN,UNKNOWN,"Trimmer, guards, comb, cable, and box are visible."
+RTN-028,Rishik Goud,PASS,PASS,used_very_good,,,Smartphone (details do not name a model; photos show itel Pulse 2),UNKNOWN,UNKNOWN,"Light blue phone, cable, adapter, and Pulse 2 boxes are visible."
+RTN-029,Rishik Goud,PASS,PASS,used_like_new,,,Bellavita Date Woman and Senorita perfume combo,UNKNOWN,UNKNOWN,Both bottles and the Bellavita box are visible.
+RTN-030,Rishik Goud,PASS,PASS,used_like_new,,,Puma shoes,UNKNOWN,UNKNOWN,Both white shoes and the red Puma box are visible.
+RTN-031,Rishik Goud,PASS,PASS,used_like_new,,,Louis Kouros aviator sunglasses,UNKNOWN,UNKNOWN,"Glasses, case, box, and cloth are visible."
+RTN-032,Rishik Goud,PASS,PASS,used_very_good,,,Google Pixel smartphone,UNKNOWN,UNKNOWN,"Light green Pixel back, Google box, cable, and a front view are visible."
+RTN-033,Rishik Goud,PASS,PASS,used_like_new,,,TRIGGR Trinity wireless headphones,UNKNOWN,UNKNOWN,"Headphones, USB cable, aux cable, and Trinity box are visible."
+RTN-034,Rishik Goud,PASS,PASS,used_very_good,,,Samsung Galaxy F07,UNKNOWN,UNKNOWN,"Phone, Galaxy F07 box, cable, and SIM tool are visible. Screen turns on."
+RTN-035,Rishik Goud,PASS,PASS,used_very_good,,,Power bank with built-in cable,UNKNOWN,UNKNOWN,"Pale blue 20000 mAh bank, built-in cable, and box are visible."
+RTN-036,Rishik Goud,PASS,PASS,used_like_new,,,boAt Rockerz 430 headphones,UNKNOWN,UNKNOWN,"Headphones, aux cable, and Rockerz 430 box are visible."
+RTN-037,Rishik Goud,PASS,UNCERTAIN,used_very_good,,,TP-Link router,UNKNOWN,UNKNOWN,"White TP-Link cylinder is the product. Cables are plugged in. The box in frame is a Google Nest Mini box, not this unit’s box."
+RTN-038,Rishik Goud,PASS,UNCERTAIN,used_good,,,Canon printer,UNKNOWN,UNKNOWN,"Canon printer, power cable, and USB cable are visible. Ink cartridges and box are not shown. Used look."
+RTN-039,Rishik Goud,PASS,PASS,used_very_good,,,Acer UT300 128 GB flash drive,UNKNOWN,UNKNOWN,Drive and opened blister match. Caps are on.
+RTN-040,Rishik Goud,PASS,PASS,used_like_new,,,SanDisk portable SSD,UNKNOWN,UNKNOWN,"SSD, red SanDisk box, and USB cable are visible."
+RTN-041,Rishik Goud,PASS,PASS,used_very_good,,,20W USB-C power adapter and cable,UNKNOWN,UNKNOWN,"White adapter, cable, and a MAK 20W pack are visible."
+RTN-042,Rishik Goud,PASS,PASS,used_very_good,,,AGARO massage gun,UNKNOWN,UNKNOWN,"Gun, heads, charging cable, and AGARO box are visible."
+RTN-043,Rishik Goud,PASS,PASS,used_very_good,,,Atomberg smart lock,UNKNOWN,UNKNOWN,"Installed lock, handles, lock body, cards, and manual are visible."
+RTN-044,Rishik Goud,UNCERTAIN,PASS,used_very_good,,,POCO smartphone (box reads X8 Pro Max),UNKNOWN,UNKNOWN,"A white phone, 100W charger, cable, and POCO box are visible. Photos are screenshots, and the phone colour is not clearly the box colour. Screen is on and intact."
+RTN-045,Rishik Goud,PASS,FAIL,used_very_good,,,Redmi 15A 5G,UNKNOWN,UNKNOWN,Phone and Redmi 15A box match. Charger and cable are not in the photos.
+RTN-046,Rishik Goud,PASS,FAIL,used_very_good,,,iPhone 15,UNKNOWN,UNKNOWN,"The handset looks like an iPhone 15. Cable, adapter, and the physical box are not shown. One image is a screenshot of a review, not the unit."
+RTN-047,Rishik Goud,PASS,PASS,used_like_new,,,Crompton LED bulb,UNKNOWN,UNKNOWN,Crompton backup-lamp box and matching bulb are visible.
+RTN-048,Rishik Goud,PASS,PASS,used_very_good,,,Philips hand mixer,UNKNOWN,UNKNOWN,"Mixer, beaters, dough hooks, manuals, and box are visible."
+RTN-049,Rishik Goud,UNCERTAIN,FAIL,unknown,,,Atomberg ceiling fan,UNKNOWN,UNKNOWN,Box and loose white motor parts look like an Atomberg fan. A separate photo shows a grey fan already on a ceiling. Remote and downrod are not shown.
+RTN-050,Rishik Goud,PASS,PASS,used_like_new,,,Havells Glace Plus dry iron,UNKNOWN,UNKNOWN,"Iron, cord, manual, and Havells box are visible."

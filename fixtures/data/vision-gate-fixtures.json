@@ -1,0 +1,203 @@
+{
+  "document_type": "Real Vision Gate - Execution-Ready Fixtures",
+  "status": "APPROVED - READY FOR EXECUTION",
+  "created": "2026-09-25T22:00:00+05:30",
+  "reference_type": "SYNTHETIC_DEVELOPMENT_REFERENCE",
+  "warning": "NOT FACTUAL GROUND TRUTH - Synthetic catalogue/order context for development testing",
+  "fixtures": [
+    {
+      "case_id": "DEV-001",
+      "name": "White Adapter - Complete, Like-New → Restock",
+      "organization_id": "org_demo_alpha",
+      "client_id": "seller-alpha-dev-001",
+      "ordered_sku": "DEV-ADAPTER-WHITE-001",
+      "ordered_asin": "SYN-RTN-001",
+      "product_name": "White Compact Power Adapter",
+      "parts_list": ["Power adapter (white, square body)", "White charging cable (attached)"],
+      "photos": [
+        "fixtures/images/vision-gate/dev-001-photo-1.jpg",
+        "fixtures/images/vision-gate/dev-001-photo-2.jpg",
+        "fixtures/images/vision-gate/dev-001-photo-3.jpg"
+      ],
+      "expected_disposition": "restock",
+      "test_objective": "Happy path - all checks pass"
+    },
+    {
+      "case_id": "DEV-002A",
+      "name": "Acer Laptop Only - NOT_OBSERVABLE → Pending Review",
+      "organization_id": "org_demo_alpha",
+      "client_id": "seller-alpha-dev-002",
+      "ordered_sku": "DEV-LAPTOP-ACER-001",
+      "ordered_asin": "SYN-RTN-002",
+      "product_name": "Acer Chromebook Plus Laptop",
+      "parts_list": ["Chromebook laptop", "AC power adapter", "Power cable"],
+      "photos": [
+        "fixtures/images/vision-gate/dev-002-photo-1.jpg",
+        "fixtures/images/vision-gate/dev-002-photo-2.jpg"
+      ],
+      "expected_disposition": "pending_review",
+      "test_objective": "NOT_OBSERVABLE vs ABSENT distinction - accessories not visible"
+    },
+    {
+      "case_id": "DEV-003",
+      "name": "Headphones - Incomplete (missing case) → Refurbish",
+      "organization_id": "org_demo_bravo",
+      "client_id": "seller-bravo-dev-001",
+      "ordered_sku": "DEV-HEADPHONES-001",
+      "ordered_asin": "SYN-RTN-003",
+      "product_name": "Red/Black Wired Over-Ear Headphones",
+      "parts_list": ["Headphones with ear cups", "Attached cable with inline control", "Carrying case"],
+      "photos": [
+        "fixtures/images/vision-gate/dev-003-photo-1.jpg",
+        "fixtures/images/vision-gate/dev-003-photo-2.jpg"
+      ],
+      "expected_disposition": "refurbish",
+      "test_objective": "Incomplete return with VISIBLE_ABSENT component, degraded image handling"
+    },
+    {
+      "case_id": "DEV-004",
+      "name": "Black Adapter - Complete, Good → Restock",
+      "organization_id": "org_demo_bravo",
+      "client_id": "seller-bravo-dev-002",
+      "ordered_sku": "DEV-ADAPTER-BLACK-001",
+      "ordered_asin": "SYN-RTN-004",
+      "product_name": "Black Laptop AC Power Adapter",
+      "parts_list": ["AC adapter", "Input power cable", "Output cable"],
+      "photos": [
+        "fixtures/images/vision-gate/dev-004-photo-1.jpg",
+        "fixtures/images/vision-gate/dev-004-photo-2.jpg"
+      ],
+      "expected_disposition": "restock",
+      "test_objective": "Label unreadable but checks pass"
+    },
+    {
+      "case_id": "DEV-005A",
+      "name": "MacBook Only - Single Photo Limitation → Pending Review",
+      "organization_id": "org_demo_alpha",
+      "client_id": "seller-alpha-dev-003",
+      "ordered_sku": "DEV-LAPTOP-APPLE-001",
+      "ordered_asin": "SYN-RTN-005",
+      "product_name": "Silver Apple Laptop",
+      "parts_list": ["Laptop", "Power adapter", "Charging cable"],
+      "photos": [
+        "fixtures/images/vision-gate/dev-005-photo-1.jpg"
+      ],
+      "expected_disposition": "pending_review",
+      "test_objective": "Single-photo evidence limitation, UNCERTAIN for completeness"
+    },
+    {
+      "case_id": "DEV-005B",
+      "name": "MacBook + Adapter - Complete, Like-New → Restock",
+      "organization_id": "org_demo_alpha",
+      "client_id": "seller-alpha-dev-003b",
+      "ordered_sku": "DEV-LAPTOP-APPLE-001",
+      "ordered_asin": "SYN-RTN-005",
+      "product_name": "Silver Apple Laptop with Accessories",
+      "parts_list": ["Laptop", "Power adapter", "Charging cable"],
+      "photos": [
+        "fixtures/images/vision-gate/dev-005-photo-1.jpg",
+        "fixtures/images/vision-gate/dev-005-photo-2.jpg",
+        "fixtures/images/vision-gate/dev-001-photo-1.jpg"
+      ],
+      "expected_disposition": "restock",
+      "test_objective": "Contrast with DEV-005A - full evidence vs limited"
+    },
+    {
+      "case_id": "DEV-006",
+      "name": "Timex Watch - Visible Wear, Good → Restock",
+      "organization_id": "org_demo_bravo",
+      "client_id": "seller-bravo-dev-003",
+      "ordered_sku": "DEV-WATCH-TIMEX-001",
+      "ordered_asin": "SYN-RTN-006",
+      "product_name": "Timex Chronograph Wristwatch",
+      "parts_list": ["Watch with case and dial", "Leather strap"],
+      "photos": [
+        "fixtures/images/vision-gate/dev-006-photo-1.jpg"
+      ],
+      "expected_disposition": "restock",
+      "test_objective": "Brand identification, visible wear, good vs like-new distinction"
+    },
+    {
+      "case_id": "DEV-007",
+      "name": "Headphones - Incomplete + Damaged → Liquidate",
+      "organization_id": "org_demo_alpha",
+      "client_id": "seller-alpha-dev-004",
+      "ordered_sku": "DEV-HEADPHONES-001",
+      "ordered_asin": "SYN-RTN-003",
+      "product_name": "Red/Black Wired Over-Ear Headphones",
+      "parts_list": ["Headphones", "Cable", "Carrying case", "Extra ear pads"],
+      "photos": [
+        "fixtures/images/vision-gate/dev-003-photo-1.jpg"
+      ],
+      "expected_disposition": "liquidate",
+      "test_objective": "Liquidate policy branch - incomplete + damaged combination",
+      "synthetic_note": "Reuses DEV-003 photo with different synthetic context (more missing parts + worse condition)"
+    },
+    {
+      "case_id": "DEV-008",
+      "name": "Black Adapter - Synthetic Documented Damage → Dispose",
+      "organization_id": "org_demo_bravo",
+      "client_id": "seller-bravo-dev-004",
+      "ordered_sku": "DEV-ADAPTER-BLACK-001",
+      "ordered_asin": "SYN-RTN-004",
+      "product_name": "Black Laptop AC Power Adapter",
+      "parts_list": ["AC adapter", "Cables"],
+      "photos": [
+        "fixtures/images/vision-gate/dev-004-photo-1.jpg"
+      ],
+      "expected_disposition": "dispose",
+      "test_objective": "Dispose policy branch - tests policy when documented damage exists",
+      "synthetic_note": "Reuses DEV-004 photo. CRITICAL: Photo shows clean adapter. Synthetic scenario: customer reported exposed wires + burning smell. This is POLICY/CONTEXT TEST, NOT visual detection.",
+      "documented_damage": "Exposed wires, burning smell reported (synthetic scenario)"
+    },
+    {
+      "case_id": "DEV-WRONG-001",
+      "name": "Wrong Product - Timex vs Casio → Pending Review",
+      "organization_id": "org_demo_alpha",
+      "client_id": "seller-alpha-dev-005",
+      "ordered_sku": "DEV-WATCH-CASIO-001",
+      "ordered_asin": "SYN-RTN-WRONG-001",
+      "product_name": "Black Casio Digital Watch",
+      "parts_list": ["Digital watch (Casio brand, black)"],
+      "photos": [
+        "fixtures/images/vision-gate/dev-006-photo-1.jpg"
+      ],
+      "expected_disposition": "pending_review",
+      "test_objective": "Wrong product detection - brand mismatch (Timex received, Casio ordered)",
+      "synthetic_note": "Reuses DEV-006 photo with different order context"
+    },
+    {
+      "case_id": "DEV-WRONG-002",
+      "name": "Similar Adapter - Insufficient Detail → Pending Review",
+      "organization_id": "org_demo_bravo",
+      "client_id": "seller-bravo-dev-005",
+      "ordered_sku": "DEV-ADAPTER-USB-C-96W",
+      "ordered_asin": "SYN-RTN-WRONG-002",
+      "product_name": "White USB-C Power Adapter (96W)",
+      "parts_list": ["USB-C adapter (96W rated)", "USB-C cable"],
+      "photos": [
+        "fixtures/images/vision-gate/dev-001-photo-1.jpg",
+        "fixtures/images/vision-gate/dev-001-photo-2.jpg"
+      ],
+      "expected_disposition": "pending_review",
+      "test_objective": "UNCERTAIN for similar products lacking identifying detail (USB-C connector not visible)",
+      "synthetic_note": "Reuses DEV-001 photos with different order context requiring specific connector type"
+    },
+    {
+      "case_id": "DEV-UNCERTAIN-001",
+      "name": "Blurry Photo Only - Degraded Evidence → Pending Review",
+      "organization_id": "org_demo_alpha",
+      "client_id": "seller-alpha-dev-006",
+      "ordered_sku": "DEV-HEADPHONES-001",
+      "ordered_asin": "SYN-RTN-003",
+      "product_name": "Red/Black Wired Over-Ear Headphones",
+      "parts_list": ["Headphones", "Cable"],
+      "photos": [
+        "fixtures/images/vision-gate/dev-003-photo-2.jpg"
+      ],
+      "expected_disposition": "pending_review",
+      "test_objective": "UNCERTAIN across all checks when evidence is degraded (blurry photo only)",
+      "synthetic_note": "Reuses DEV-003 blurry photo only"
+    }
+  ]
+}
