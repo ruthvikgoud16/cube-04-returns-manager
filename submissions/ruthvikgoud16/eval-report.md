@@ -83,6 +83,12 @@ RTN-017, RTN-026, and RTN-032 had no image files in the listed photo folders. Th
 
 47 model calls. Persisted meter on the final results file: 147,613 input tokens, 18,285 output tokens, approximately $0.72 at the meter used by the run ($3 per million input tokens and $15 per million output tokens). No further estimate is made. This is not an invoice.
 
+## Disposition Policy-Consistency Analysis
+
+This is a policy-consistency analysis, not an independently human-labeled disposition accuracy measurement.
+
+Disposition was not independently human-labeled in the frozen evaluation. End-to-end disposition accuracy cannot be claimed. Feeding the agreed human identity, completeness, and Amazon condition into the existing `policy_v1` checks whether that rule would assign the disposition the agent saved. The model was not rerun, and the frozen grades were not changed. Upstream visual errors stay separate from the rule. On these 40 cases the rule matches the saved disposition for 27/40 (67.5%). The 13 mismatches, all from different check inputs, are listed in `submissions/ruthvikgoud16/disposition-policy-consistency.md`. Applying `policy_v1` to the saved agent checks reproduces the saved disposition on all 40, so there is no true policy mapping inconsistency.
+
 ## H. Limitations
 
 Condition is the largest measured weakness. Disposition was not independently labeled, so it has no accuracy. Three of the 50 cases had no image files in the folders this run listed. Only 40 cases sit in the per-check match rates, because a case had to be agreed by both labelers and had to have a model grade. These figures describe this held-out set. They are not a claim about other returns, other sellers, or a later week.

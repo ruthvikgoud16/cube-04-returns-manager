@@ -1,0 +1,19 @@
+1
+00:00:00,000 --> 00:00:05,000
+Sign in as org_demo_alpha. The session names the organisation. The other organisation stays closed.
+
+2
+00:00:05,000 --> 00:00:14,000
+One model call grades identity, completeness, and condition. policy_v1 then sets the disposition. These three rates are the frozen 40-case evaluation, not a new model run.
+
+3
+00:00:14,000 --> 00:00:27,000
+RTN-019, NOVA hair straightener. Saved evaluation. Identity PASS, completeness PASS, condition Very Good. Both labelers agreed. policy_v1 restocked a complete Very Good unit.
+
+4
+00:00:27,000 --> 00:00:37,000
+RTN-001, Samsung Book laptop. Identity PASS. Completeness UNCERTAIN, because the adapter and box are not clearly shown. UNCERTAIN is not a pass, so policy_v1 held it.
+
+5
+00:00:37,000 --> 00:01:01,000
+On 40 agreed cases with a model grade: identity 37/40, 92.5%. Completeness 30/40, 75.0%. Condition 17/40, 42.5%. Condition is a grade match, not an overall accuracy.

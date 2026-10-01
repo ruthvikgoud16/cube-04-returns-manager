@@ -154,6 +154,11 @@ export function buildApp(deps: AppDeps) {
     reply.type("text/html").send(html);
   });
 
+  app.get("/demo", async (_request, reply) => {
+    const html = await readFile(path.join(ROOT, "public", "demo.html"), "utf8");
+    reply.type("text/html").send(html);
+  });
+
   return app;
 }
 

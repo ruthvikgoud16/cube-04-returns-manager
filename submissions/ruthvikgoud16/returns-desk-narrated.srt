@@ -1,0 +1,19 @@
+1
+00:00:00,200 --> 00:00:08,400
+A photographed return is checked for identity, completeness, and condition. Sign-in names the organisation.
+
+2
+00:00:09,000 --> 00:00:16,900
+One model call grades those three checks. Policy v1 sets the disposition. Uncertain is not a pass.
+
+3
+00:00:20,000 --> 00:00:31,700
+RTN-019, the Nova, is a saved evaluation. The checks agree, so policy v1 restocks it. This does not call the model.
+
+4
+00:00:32,000 --> 00:00:43,600
+RTN-001, the Samsung Book. Completeness is uncertain, so the saved result stays pending review.
+
+5
+00:00:46,000 --> 00:01:00,600
+On 40 agreed cases: identity 37/40, completeness 30/40, condition 17/40. Condition is the weak check. Zero true policy-mapping inconsistencies. This set only.

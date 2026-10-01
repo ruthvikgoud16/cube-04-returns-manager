@@ -14,6 +14,16 @@
 
 ruthvikgoud16. One Claude vision call grades identity, completeness, and condition. `policy_v1` chooses the disposition afterwards. A bad frame or a failed call is saved as `pending_review`. It is not dropped, and it is not restocked.
 
+### Read this in two minutes
+
+A returned unit is photographed. The operator names the product and the required parts. The agent answers three checks from the photos: is it the named item, are the required parts shown, and which Amazon used grade fits what is visible. It does not choose restock or review. A fixed rule, `policy_v1`, does that after the checks validate. If any check is UNCERTAIN, or the model call fails, the capture is saved for a person. UNCERTAIN is not a pass.
+
+The evidence record keeps the photos, each check’s verdict, confidence, model, and timing, the disposition, and a SHA-256 content hash. The hash shows whether a copy changed. It is not a tamper-proof seal. Demo organisations are `org_demo_alpha` and `org_demo_bravo`. The organisation comes from the signed session.
+
+On this evaluation set, and only this set: identity 37/40 (92.5%), completeness 30/40 (75.0%), condition 17/40 (42.5%). Condition is the weak check, usually one step too generous on Amazon’s used scale. Disposition was not human-labeled. 40/40 saved dispositions match `policy_v1` on the agent’s own checks. 27/40 (67.5%) match `policy_v1` on the agreed human checks. That 67.5% is not a disposition accuracy. The full reading is [`EVALUATION.md`](EVALUATION.md).
+
+This is an operator desk for the buildathon, not a claim that the same rates would hold in a warehouse. A reviewer walkthrough of the two saved cards is at https://rtn-returns-manager.vercel.app/demo . Next and Back move the desk. Opening RTN-019 and RTN-001 does not call the model.
+
 ```sh
 npm install
 npm test
@@ -26,18 +36,18 @@ Open `http://localhost:8787`, enter as `org_demo_alpha`, then again in a private
 
 `npm run eval:predict` runs the 12 photographed development cases. Those 12 are not the scored set. `npm run eval:score` reads `eval/labels.csv` and `collection/export/fifty/results.json`. It prints numbers only when two labelers are present and that file has 50 rows. That print uses every row, including three cases with no model output, so the submission figures are the ones in [`submissions/ruthvikgoud16/eval-report.md`](submissions/ruthvikgoud16/eval-report.md). The `expected_disposition` values in the fixture file are developer notes, not the scored labels.
 
-Architecture: [`ARCHITECTURE.md`](ARCHITECTURE.md). The `content_hash` is a SHA-256 of the canonical JSON. It shows whether a copy changed. It does not make the record immutable.
+Architecture: [`ARCHITECTURE.md`](ARCHITECTURE.md). How the build changed from the first plan: [`docs/project-evolution.md`](docs/project-evolution.md) ([PDF](docs/project-evolution.pdf)). How to read the rates: [`docs/evaluation.md`](docs/evaluation.md) ([PDF](docs/evaluation.pdf)). The `content_hash` is a SHA-256 of the canonical JSON. It shows whether a copy changed. It does not make the record immutable.
 
 ## This fork — what was measured
 
-On the 40 agreed cases with valid model output, identity matched 92.5% (37/40), completeness 75.0% (30/40), and condition 42.5% (17/40). Condition at 42.5% is the condition-match rate. It is not an overall accuracy. Identity false positives and false negatives were 0. Completeness had 2 false positives and 0 false negatives. Seven cases were excluded because the two labelers disagreed. RTN-017, RTN-026, and RTN-032 had no image files in the listed photo folders, so the model was not called. Disposition was not human-labeled, so the 38 restock, 8 pending-review, and 1 refurbish outcomes are not a score. The full table, method, and limits are in the evaluation report. The copy is frozen under `eval/frozen/2026-10-01T1015Z/`.
+On the 40 agreed cases with valid model output, identity matched 92.5% (37/40), completeness 75.0% (30/40), and condition 42.5% (17/40). Condition at 42.5% is the condition-match rate. It is not an overall accuracy. Identity false positives and false negatives were 0. Identity was uncertain on 1/40. Completeness had 2 false positives, 0 false negatives, and was uncertain on 5/40. Seven cases were excluded because the two labelers disagreed: RTN-002, RTN-005, RTN-006, RTN-009, RTN-013, RTN-037, and RTN-044. RTN-017, RTN-026, and RTN-032 had no image files in the listed photo folders, so the model was not called. The 47 grades used 47 model calls, about 147,613 input tokens, 18,285 output tokens, and about $0.72 at the script rates. Disposition was not human-labeled, so the 38 restock, 8 pending-review, 1 refurbish, 0 liquidate, and 0 dispose outcomes are not a score. 40/40 saved dispositions match `policy_v1` from the saved agent checks. 27/40 (67.5%) match `policy_v1` applied to the agreed human checks. That 67.5% is not disposition accuracy. The full table is [`EVALUATION.md`](EVALUATION.md). The copy is frozen under `eval/frozen/2026-10-01T1015Z/`.
 
 ## How a return is processed
 
 1. The operator opens the phone page, signs in as `org_demo_alpha` or `org_demo_bravo`, and submits photos plus the product name and parts list.
 2. The quality gate drops unusable frames. Usable frames go to one Claude vision call (`claude-sonnet-4-5` unless `ANTHROPIC_MODEL` overrides it). That call grades identity, completeness, and condition together. It does not choose a disposition.
 3. Zod checks the tool output. `policy_v1` then sets the disposition. Any UNCERTAIN check, or an identity mismatch, becomes `pending_review`. Confidence is stored and never turns UNCERTAIN into PASS. `dispose` is not produced.
-4. The capture is stored as an evidence record scoped to the organisation on the session cookie. A model error, a timeout, a bad schema, or no usable photo still saves the record as `pending_review`. The stored schema is `rtn-0.1-provisional`. `GET /v1/records` projects that record into evidence-contract 1.1 for the caller’s organisation. There is no presigned upload endpoint. The public desk is https://rtn-returns-manager.vercel.app .
+4. The capture is stored as an evidence record scoped to the organisation on the session cookie. A model error, a timeout, a bad schema, or no usable photo still saves the record as `pending_review`. The stored schema is `rtn-0.1-provisional`. `GET /v1/records` projects that record into evidence-contract 1.1 for the caller’s organisation. There is no presigned upload endpoint. The public desk is https://rtn-returns-manager.vercel.app . The walkthrough is https://rtn-returns-manager.vercel.app/demo .
 
 Setup is `.env.example`: `ANTHROPIC_API_KEY`, `SESSION_SECRET`, optional `DATABASE_URL`, `PORT` (8787), and `BLOB_DIR`. Without `DATABASE_URL`, records stay in memory and images stay under `BLOB_DIR`. Postgres row-level security is the path in `npm run db:up` and `npm run test:tenancy`.
 

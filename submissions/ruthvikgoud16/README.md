@@ -4,7 +4,13 @@
 |---|---|
 | Customer letter, PR/FAQ, one-pager | this folder |
 | Eval report | [eval-report.md](eval-report.md) |
-| Demo script | [demo-script.md](demo-script.md) |
+| How to read the rates | [../../docs/evaluation.md](../../docs/evaluation.md) and [../../docs/evaluation.pdf](../../docs/evaluation.pdf) |
+| How the build changed | [../../docs/project-evolution.md](../../docs/project-evolution.md) and [../../docs/project-evolution.pdf](../../docs/project-evolution.pdf) |
+| Root evaluation note | [../../EVALUATION.md](../../EVALUATION.md) and [../../EVALUATION.pdf](../../EVALUATION.pdf) |
+| Demo script | [demo-script.md](demo-script.md) and [demo-script.pdf](demo-script.pdf) |
+| Reviewer walkthrough | https://rtn-returns-manager.vercel.app/demo |
+| Demo video | [returns-desk-demo.mp4](returns-desk-demo.mp4) and [returns-desk-narrated.mp4](returns-desk-narrated.mp4) |
+| Policy consistency | [disposition-policy-consistency.md](disposition-policy-consistency.md) and [disposition-policy-consistency.pdf](disposition-policy-consistency.pdf) |
 | LinkedIn draft | [linkedin-post.md](linkedin-post.md) |
 | Checklist | [SUBMISSION_CHECKLIST.md](SUBMISSION_CHECKLIST.md) |
 

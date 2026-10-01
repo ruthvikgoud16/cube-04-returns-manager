@@ -1,0 +1,885 @@
+{
+  "statement": "This is a policy-consistency analysis, not an independently human-labeled disposition accuracy measurement.",
+  "policy_version": "policy_v1",
+  "sources": {
+    "labels": "eval/frozen/2026-10-01T1015Z/labels.csv",
+    "results": "eval/frozen/2026-10-01T1015Z/results.json"
+  },
+  "excluded_disagreements": [
+    "RTN-002",
+    "RTN-005",
+    "RTN-006",
+    "RTN-009",
+    "RTN-013",
+    "RTN-037",
+    "RTN-044"
+  ],
+  "excluded_no_model_output": [
+    "RTN-017",
+    "RTN-026",
+    "RTN-032"
+  ],
+  "comparable_cases": 40,
+  "policy_consistent_dispositions": 27,
+  "policy_consistency_rate": 67.5,
+  "mismatch_count": 13,
+  "mismatch_case_ids": [
+    "RTN-004",
+    "RTN-008",
+    "RTN-010",
+    "RTN-016",
+    "RTN-020",
+    "RTN-021",
+    "RTN-023",
+    "RTN-025",
+    "RTN-028",
+    "RTN-038",
+    "RTN-045",
+    "RTN-046",
+    "RTN-049"
+  ],
+  "true_policy_mapping_inconsistency_case_ids": [],
+  "every_disposition_mismatch_is_upstream": true,
+  "cases": [
+    {
+      "case_id": "RTN-001",
+      "human_checks": {
+        "identity": "PASS",
+        "completeness": "UNCERTAIN",
+        "amazon_condition": "used_very_good"
+      },
+      "human_derived_policy_disposition": "pending_review",
+      "agent_checks": {
+        "identity": "PASS",
+        "completeness": "UNCERTAIN",
+        "condition": "PASS",
+        "amazon_grade": "used_very_good"
+      },
+      "policy_disposition_from_agent_checks": "pending_review",
+      "actual_agent_disposition": "pending_review",
+      "consistent": true,
+      "policy_mapping_matches_saved_agent_checks": true,
+      "classification": "match",
+      "mismatch_explanation": null
+    },
+    {
+      "case_id": "RTN-003",
+      "human_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "amazon_condition": "used_very_good"
+      },
+      "human_derived_policy_disposition": "restock",
+      "agent_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "condition": "PASS",
+        "amazon_grade": "used_like_new"
+      },
+      "policy_disposition_from_agent_checks": "restock",
+      "actual_agent_disposition": "restock",
+      "consistent": true,
+      "policy_mapping_matches_saved_agent_checks": true,
+      "classification": "match",
+      "mismatch_explanation": null
+    },
+    {
+      "case_id": "RTN-004",
+      "human_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "amazon_condition": "used_very_good"
+      },
+      "human_derived_policy_disposition": "restock",
+      "agent_checks": {
+        "identity": "PASS",
+        "completeness": "UNCERTAIN",
+        "condition": "PASS",
+        "amazon_grade": "used_very_good"
+      },
+      "policy_disposition_from_agent_checks": "pending_review",
+      "actual_agent_disposition": "pending_review",
+      "consistent": false,
+      "policy_mapping_matches_saved_agent_checks": true,
+      "classification": "upstream_perception_mismatch",
+      "mismatch_explanation": "policy_v1 saw different check results. completeness human PASS / agent UNCERTAIN. Human-derived disposition restock. Saved agent disposition pending_review."
+    },
+    {
+      "case_id": "RTN-007",
+      "human_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "amazon_condition": "used_good"
+      },
+      "human_derived_policy_disposition": "refurbish",
+      "agent_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "condition": "PASS",
+        "amazon_grade": "used_good"
+      },
+      "policy_disposition_from_agent_checks": "refurbish",
+      "actual_agent_disposition": "refurbish",
+      "consistent": true,
+      "policy_mapping_matches_saved_agent_checks": true,
+      "classification": "match",
+      "mismatch_explanation": null
+    },
+    {
+      "case_id": "RTN-008",
+      "human_checks": {
+        "identity": "PASS",
+        "completeness": "FAIL",
+        "amazon_condition": "used_very_good"
+      },
+      "human_derived_policy_disposition": "refurbish",
+      "agent_checks": {
+        "identity": "PASS",
+        "completeness": "UNCERTAIN",
+        "condition": "PASS",
+        "amazon_grade": "used_like_new"
+      },
+      "policy_disposition_from_agent_checks": "pending_review",
+      "actual_agent_disposition": "pending_review",
+      "consistent": false,
+      "policy_mapping_matches_saved_agent_checks": true,
+      "classification": "upstream_perception_mismatch",
+      "mismatch_explanation": "policy_v1 saw different check results. completeness human FAIL / agent UNCERTAIN; amazon condition human used_very_good / agent used_like_new. Human-derived disposition refurbish. Saved agent disposition pending_review."
+    },
+    {
+      "case_id": "RTN-010",
+      "human_checks": {
+        "identity": "UNCERTAIN",
+        "completeness": "PASS",
+        "amazon_condition": "used_good"
+      },
+      "human_derived_policy_disposition": "pending_review",
+      "agent_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "condition": "PASS",
+        "amazon_grade": "used_very_good"
+      },
+      "policy_disposition_from_agent_checks": "restock",
+      "actual_agent_disposition": "restock",
+      "consistent": false,
+      "policy_mapping_matches_saved_agent_checks": true,
+      "classification": "upstream_perception_mismatch",
+      "mismatch_explanation": "policy_v1 saw different check results. identity human UNCERTAIN / agent PASS; amazon condition human used_good / agent used_very_good. Human-derived disposition pending_review. Saved agent disposition restock."
+    },
+    {
+      "case_id": "RTN-011",
+      "human_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "amazon_condition": "used_very_good"
+      },
+      "human_derived_policy_disposition": "restock",
+      "agent_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "condition": "PASS",
+        "amazon_grade": "used_like_new"
+      },
+      "policy_disposition_from_agent_checks": "restock",
+      "actual_agent_disposition": "restock",
+      "consistent": true,
+      "policy_mapping_matches_saved_agent_checks": true,
+      "classification": "match",
+      "mismatch_explanation": null
+    },
+    {
+      "case_id": "RTN-012",
+      "human_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "amazon_condition": "used_very_good"
+      },
+      "human_derived_policy_disposition": "restock",
+      "agent_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "condition": "PASS",
+        "amazon_grade": "used_very_good"
+      },
+      "policy_disposition_from_agent_checks": "restock",
+      "actual_agent_disposition": "restock",
+      "consistent": true,
+      "policy_mapping_matches_saved_agent_checks": true,
+      "classification": "match",
+      "mismatch_explanation": null
+    },
+    {
+      "case_id": "RTN-014",
+      "human_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "amazon_condition": "used_very_good"
+      },
+      "human_derived_policy_disposition": "restock",
+      "agent_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "condition": "PASS",
+        "amazon_grade": "used_like_new"
+      },
+      "policy_disposition_from_agent_checks": "restock",
+      "actual_agent_disposition": "restock",
+      "consistent": true,
+      "policy_mapping_matches_saved_agent_checks": true,
+      "classification": "match",
+      "mismatch_explanation": null
+    },
+    {
+      "case_id": "RTN-015",
+      "human_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "amazon_condition": "used_very_good"
+      },
+      "human_derived_policy_disposition": "restock",
+      "agent_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "condition": "PASS",
+        "amazon_grade": "used_like_new"
+      },
+      "policy_disposition_from_agent_checks": "restock",
+      "actual_agent_disposition": "restock",
+      "consistent": true,
+      "policy_mapping_matches_saved_agent_checks": true,
+      "classification": "match",
+      "mismatch_explanation": null
+    },
+    {
+      "case_id": "RTN-016",
+      "human_checks": {
+        "identity": "PASS",
+        "completeness": "UNCERTAIN",
+        "amazon_condition": "used_good"
+      },
+      "human_derived_policy_disposition": "pending_review",
+      "agent_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "condition": "PASS",
+        "amazon_grade": "used_very_good"
+      },
+      "policy_disposition_from_agent_checks": "restock",
+      "actual_agent_disposition": "restock",
+      "consistent": false,
+      "policy_mapping_matches_saved_agent_checks": true,
+      "classification": "upstream_perception_mismatch",
+      "mismatch_explanation": "policy_v1 saw different check results. completeness human UNCERTAIN / agent PASS; amazon condition human used_good / agent used_very_good. Human-derived disposition pending_review. Saved agent disposition restock."
+    },
+    {
+      "case_id": "RTN-018",
+      "human_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "amazon_condition": "used_very_good"
+      },
+      "human_derived_policy_disposition": "restock",
+      "agent_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "condition": "PASS",
+        "amazon_grade": "used_like_new"
+      },
+      "policy_disposition_from_agent_checks": "restock",
+      "actual_agent_disposition": "restock",
+      "consistent": true,
+      "policy_mapping_matches_saved_agent_checks": true,
+      "classification": "match",
+      "mismatch_explanation": null
+    },
+    {
+      "case_id": "RTN-019",
+      "human_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "amazon_condition": "used_very_good"
+      },
+      "human_derived_policy_disposition": "restock",
+      "agent_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "condition": "PASS",
+        "amazon_grade": "used_very_good"
+      },
+      "policy_disposition_from_agent_checks": "restock",
+      "actual_agent_disposition": "restock",
+      "consistent": true,
+      "policy_mapping_matches_saved_agent_checks": true,
+      "classification": "match",
+      "mismatch_explanation": null
+    },
+    {
+      "case_id": "RTN-020",
+      "human_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "amazon_condition": "used_good"
+      },
+      "human_derived_policy_disposition": "refurbish",
+      "agent_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "condition": "PASS",
+        "amazon_grade": "used_very_good"
+      },
+      "policy_disposition_from_agent_checks": "restock",
+      "actual_agent_disposition": "restock",
+      "consistent": false,
+      "policy_mapping_matches_saved_agent_checks": true,
+      "classification": "upstream_perception_mismatch",
+      "mismatch_explanation": "policy_v1 saw different check results. amazon condition human used_good / agent used_very_good. Human-derived disposition refurbish. Saved agent disposition restock."
+    },
+    {
+      "case_id": "RTN-021",
+      "human_checks": {
+        "identity": "PASS",
+        "completeness": "UNCERTAIN",
+        "amazon_condition": "used_like_new"
+      },
+      "human_derived_policy_disposition": "pending_review",
+      "agent_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "condition": "PASS",
+        "amazon_grade": "used_like_new"
+      },
+      "policy_disposition_from_agent_checks": "restock",
+      "actual_agent_disposition": "restock",
+      "consistent": false,
+      "policy_mapping_matches_saved_agent_checks": true,
+      "classification": "upstream_perception_mismatch",
+      "mismatch_explanation": "policy_v1 saw different check results. completeness human UNCERTAIN / agent PASS. Human-derived disposition pending_review. Saved agent disposition restock."
+    },
+    {
+      "case_id": "RTN-022",
+      "human_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "amazon_condition": "used_very_good"
+      },
+      "human_derived_policy_disposition": "restock",
+      "agent_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "condition": "PASS",
+        "amazon_grade": "used_like_new"
+      },
+      "policy_disposition_from_agent_checks": "restock",
+      "actual_agent_disposition": "restock",
+      "consistent": true,
+      "policy_mapping_matches_saved_agent_checks": true,
+      "classification": "match",
+      "mismatch_explanation": null
+    },
+    {
+      "case_id": "RTN-023",
+      "human_checks": {
+        "identity": "PASS",
+        "completeness": "UNCERTAIN",
+        "amazon_condition": "used_very_good"
+      },
+      "human_derived_policy_disposition": "pending_review",
+      "agent_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "condition": "PASS",
+        "amazon_grade": "used_like_new"
+      },
+      "policy_disposition_from_agent_checks": "restock",
+      "actual_agent_disposition": "restock",
+      "consistent": false,
+      "policy_mapping_matches_saved_agent_checks": true,
+      "classification": "upstream_perception_mismatch",
+      "mismatch_explanation": "policy_v1 saw different check results. completeness human UNCERTAIN / agent PASS; amazon condition human used_very_good / agent used_like_new. Human-derived disposition pending_review. Saved agent disposition restock."
+    },
+    {
+      "case_id": "RTN-024",
+      "human_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "amazon_condition": "used_very_good"
+      },
+      "human_derived_policy_disposition": "restock",
+      "agent_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "condition": "PASS",
+        "amazon_grade": "used_like_new"
+      },
+      "policy_disposition_from_agent_checks": "restock",
+      "actual_agent_disposition": "restock",
+      "consistent": true,
+      "policy_mapping_matches_saved_agent_checks": true,
+      "classification": "match",
+      "mismatch_explanation": null
+    },
+    {
+      "case_id": "RTN-025",
+      "human_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "amazon_condition": "used_like_new"
+      },
+      "human_derived_policy_disposition": "restock",
+      "agent_checks": {
+        "identity": "PASS",
+        "completeness": "UNCERTAIN",
+        "condition": "PASS",
+        "amazon_grade": "used_very_good"
+      },
+      "policy_disposition_from_agent_checks": "pending_review",
+      "actual_agent_disposition": "pending_review",
+      "consistent": false,
+      "policy_mapping_matches_saved_agent_checks": true,
+      "classification": "upstream_perception_mismatch",
+      "mismatch_explanation": "policy_v1 saw different check results. completeness human PASS / agent UNCERTAIN; amazon condition human used_like_new / agent used_very_good. Human-derived disposition restock. Saved agent disposition pending_review."
+    },
+    {
+      "case_id": "RTN-027",
+      "human_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "amazon_condition": "used_like_new"
+      },
+      "human_derived_policy_disposition": "restock",
+      "agent_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "condition": "PASS",
+        "amazon_grade": "used_like_new"
+      },
+      "policy_disposition_from_agent_checks": "restock",
+      "actual_agent_disposition": "restock",
+      "consistent": true,
+      "policy_mapping_matches_saved_agent_checks": true,
+      "classification": "match",
+      "mismatch_explanation": null
+    },
+    {
+      "case_id": "RTN-028",
+      "human_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "amazon_condition": "used_very_good"
+      },
+      "human_derived_policy_disposition": "restock",
+      "agent_checks": {
+        "identity": "UNCERTAIN",
+        "completeness": "PASS",
+        "condition": "PASS",
+        "amazon_grade": "used_very_good"
+      },
+      "policy_disposition_from_agent_checks": "pending_review",
+      "actual_agent_disposition": "pending_review",
+      "consistent": false,
+      "policy_mapping_matches_saved_agent_checks": true,
+      "classification": "upstream_perception_mismatch",
+      "mismatch_explanation": "policy_v1 saw different check results. identity human PASS / agent UNCERTAIN. Human-derived disposition restock. Saved agent disposition pending_review."
+    },
+    {
+      "case_id": "RTN-029",
+      "human_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "amazon_condition": "used_like_new"
+      },
+      "human_derived_policy_disposition": "restock",
+      "agent_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "condition": "PASS",
+        "amazon_grade": "used_like_new"
+      },
+      "policy_disposition_from_agent_checks": "restock",
+      "actual_agent_disposition": "restock",
+      "consistent": true,
+      "policy_mapping_matches_saved_agent_checks": true,
+      "classification": "match",
+      "mismatch_explanation": null
+    },
+    {
+      "case_id": "RTN-030",
+      "human_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "amazon_condition": "used_like_new"
+      },
+      "human_derived_policy_disposition": "restock",
+      "agent_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "condition": "PASS",
+        "amazon_grade": "used_like_new"
+      },
+      "policy_disposition_from_agent_checks": "restock",
+      "actual_agent_disposition": "restock",
+      "consistent": true,
+      "policy_mapping_matches_saved_agent_checks": true,
+      "classification": "match",
+      "mismatch_explanation": null
+    },
+    {
+      "case_id": "RTN-031",
+      "human_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "amazon_condition": "used_like_new"
+      },
+      "human_derived_policy_disposition": "restock",
+      "agent_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "condition": "PASS",
+        "amazon_grade": "used_like_new"
+      },
+      "policy_disposition_from_agent_checks": "restock",
+      "actual_agent_disposition": "restock",
+      "consistent": true,
+      "policy_mapping_matches_saved_agent_checks": true,
+      "classification": "match",
+      "mismatch_explanation": null
+    },
+    {
+      "case_id": "RTN-033",
+      "human_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "amazon_condition": "used_like_new"
+      },
+      "human_derived_policy_disposition": "restock",
+      "agent_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "condition": "PASS",
+        "amazon_grade": "used_very_good"
+      },
+      "policy_disposition_from_agent_checks": "restock",
+      "actual_agent_disposition": "restock",
+      "consistent": true,
+      "policy_mapping_matches_saved_agent_checks": true,
+      "classification": "match",
+      "mismatch_explanation": null
+    },
+    {
+      "case_id": "RTN-034",
+      "human_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "amazon_condition": "used_very_good"
+      },
+      "human_derived_policy_disposition": "restock",
+      "agent_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "condition": "PASS",
+        "amazon_grade": "used_very_good"
+      },
+      "policy_disposition_from_agent_checks": "restock",
+      "actual_agent_disposition": "restock",
+      "consistent": true,
+      "policy_mapping_matches_saved_agent_checks": true,
+      "classification": "match",
+      "mismatch_explanation": null
+    },
+    {
+      "case_id": "RTN-035",
+      "human_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "amazon_condition": "used_very_good"
+      },
+      "human_derived_policy_disposition": "restock",
+      "agent_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "condition": "PASS",
+        "amazon_grade": "used_like_new"
+      },
+      "policy_disposition_from_agent_checks": "restock",
+      "actual_agent_disposition": "restock",
+      "consistent": true,
+      "policy_mapping_matches_saved_agent_checks": true,
+      "classification": "match",
+      "mismatch_explanation": null
+    },
+    {
+      "case_id": "RTN-036",
+      "human_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "amazon_condition": "used_like_new"
+      },
+      "human_derived_policy_disposition": "restock",
+      "agent_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "condition": "PASS",
+        "amazon_grade": "used_very_good"
+      },
+      "policy_disposition_from_agent_checks": "restock",
+      "actual_agent_disposition": "restock",
+      "consistent": true,
+      "policy_mapping_matches_saved_agent_checks": true,
+      "classification": "match",
+      "mismatch_explanation": null
+    },
+    {
+      "case_id": "RTN-038",
+      "human_checks": {
+        "identity": "PASS",
+        "completeness": "UNCERTAIN",
+        "amazon_condition": "used_good"
+      },
+      "human_derived_policy_disposition": "pending_review",
+      "agent_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "condition": "PASS",
+        "amazon_grade": "used_very_good"
+      },
+      "policy_disposition_from_agent_checks": "restock",
+      "actual_agent_disposition": "restock",
+      "consistent": false,
+      "policy_mapping_matches_saved_agent_checks": true,
+      "classification": "upstream_perception_mismatch",
+      "mismatch_explanation": "policy_v1 saw different check results. completeness human UNCERTAIN / agent PASS; amazon condition human used_good / agent used_very_good. Human-derived disposition pending_review. Saved agent disposition restock."
+    },
+    {
+      "case_id": "RTN-039",
+      "human_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "amazon_condition": "used_very_good"
+      },
+      "human_derived_policy_disposition": "restock",
+      "agent_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "condition": "PASS",
+        "amazon_grade": "used_like_new"
+      },
+      "policy_disposition_from_agent_checks": "restock",
+      "actual_agent_disposition": "restock",
+      "consistent": true,
+      "policy_mapping_matches_saved_agent_checks": true,
+      "classification": "match",
+      "mismatch_explanation": null
+    },
+    {
+      "case_id": "RTN-040",
+      "human_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "amazon_condition": "used_like_new"
+      },
+      "human_derived_policy_disposition": "restock",
+      "agent_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "condition": "PASS",
+        "amazon_grade": "used_like_new"
+      },
+      "policy_disposition_from_agent_checks": "restock",
+      "actual_agent_disposition": "restock",
+      "consistent": true,
+      "policy_mapping_matches_saved_agent_checks": true,
+      "classification": "match",
+      "mismatch_explanation": null
+    },
+    {
+      "case_id": "RTN-041",
+      "human_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "amazon_condition": "used_very_good"
+      },
+      "human_derived_policy_disposition": "restock",
+      "agent_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "condition": "PASS",
+        "amazon_grade": "used_very_good"
+      },
+      "policy_disposition_from_agent_checks": "restock",
+      "actual_agent_disposition": "restock",
+      "consistent": true,
+      "policy_mapping_matches_saved_agent_checks": true,
+      "classification": "match",
+      "mismatch_explanation": null
+    },
+    {
+      "case_id": "RTN-042",
+      "human_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "amazon_condition": "used_very_good"
+      },
+      "human_derived_policy_disposition": "restock",
+      "agent_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "condition": "PASS",
+        "amazon_grade": "used_like_new"
+      },
+      "policy_disposition_from_agent_checks": "restock",
+      "actual_agent_disposition": "restock",
+      "consistent": true,
+      "policy_mapping_matches_saved_agent_checks": true,
+      "classification": "match",
+      "mismatch_explanation": null
+    },
+    {
+      "case_id": "RTN-043",
+      "human_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "amazon_condition": "used_very_good"
+      },
+      "human_derived_policy_disposition": "restock",
+      "agent_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "condition": "PASS",
+        "amazon_grade": "used_very_good"
+      },
+      "policy_disposition_from_agent_checks": "restock",
+      "actual_agent_disposition": "restock",
+      "consistent": true,
+      "policy_mapping_matches_saved_agent_checks": true,
+      "classification": "match",
+      "mismatch_explanation": null
+    },
+    {
+      "case_id": "RTN-045",
+      "human_checks": {
+        "identity": "PASS",
+        "completeness": "FAIL",
+        "amazon_condition": "used_very_good"
+      },
+      "human_derived_policy_disposition": "refurbish",
+      "agent_checks": {
+        "identity": "PASS",
+        "completeness": "UNCERTAIN",
+        "condition": "PASS",
+        "amazon_grade": "used_like_new"
+      },
+      "policy_disposition_from_agent_checks": "pending_review",
+      "actual_agent_disposition": "pending_review",
+      "consistent": false,
+      "policy_mapping_matches_saved_agent_checks": true,
+      "classification": "upstream_perception_mismatch",
+      "mismatch_explanation": "policy_v1 saw different check results. completeness human FAIL / agent UNCERTAIN; amazon condition human used_very_good / agent used_like_new. Human-derived disposition refurbish. Saved agent disposition pending_review."
+    },
+    {
+      "case_id": "RTN-046",
+      "human_checks": {
+        "identity": "PASS",
+        "completeness": "FAIL",
+        "amazon_condition": "used_very_good"
+      },
+      "human_derived_policy_disposition": "refurbish",
+      "agent_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "condition": "PASS",
+        "amazon_grade": "used_like_new"
+      },
+      "policy_disposition_from_agent_checks": "restock",
+      "actual_agent_disposition": "restock",
+      "consistent": false,
+      "policy_mapping_matches_saved_agent_checks": true,
+      "classification": "upstream_perception_mismatch",
+      "mismatch_explanation": "policy_v1 saw different check results. completeness human FAIL / agent PASS; amazon condition human used_very_good / agent used_like_new. Human-derived disposition refurbish. Saved agent disposition restock."
+    },
+    {
+      "case_id": "RTN-047",
+      "human_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "amazon_condition": "used_like_new"
+      },
+      "human_derived_policy_disposition": "restock",
+      "agent_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "condition": "PASS",
+        "amazon_grade": "used_very_good"
+      },
+      "policy_disposition_from_agent_checks": "restock",
+      "actual_agent_disposition": "restock",
+      "consistent": true,
+      "policy_mapping_matches_saved_agent_checks": true,
+      "classification": "match",
+      "mismatch_explanation": null
+    },
+    {
+      "case_id": "RTN-048",
+      "human_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "amazon_condition": "used_very_good"
+      },
+      "human_derived_policy_disposition": "restock",
+      "agent_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "condition": "PASS",
+        "amazon_grade": "used_very_good"
+      },
+      "policy_disposition_from_agent_checks": "restock",
+      "actual_agent_disposition": "restock",
+      "consistent": true,
+      "policy_mapping_matches_saved_agent_checks": true,
+      "classification": "match",
+      "mismatch_explanation": null
+    },
+    {
+      "case_id": "RTN-049",
+      "human_checks": {
+        "identity": "UNCERTAIN",
+        "completeness": "FAIL",
+        "amazon_condition": "unknown"
+      },
+      "human_derived_policy_disposition": "pending_review",
+      "agent_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "condition": "PASS",
+        "amazon_grade": "used_very_good"
+      },
+      "policy_disposition_from_agent_checks": "restock",
+      "actual_agent_disposition": "restock",
+      "consistent": false,
+      "policy_mapping_matches_saved_agent_checks": true,
+      "classification": "upstream_perception_mismatch",
+      "mismatch_explanation": "policy_v1 saw different check results. identity human UNCERTAIN / agent PASS; completeness human FAIL / agent PASS; amazon condition human unknown / agent used_very_good. Human-derived disposition pending_review. Saved agent disposition restock."
+    },
+    {
+      "case_id": "RTN-050",
+      "human_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "amazon_condition": "used_like_new"
+      },
+      "human_derived_policy_disposition": "restock",
+      "agent_checks": {
+        "identity": "PASS",
+        "completeness": "PASS",
+        "condition": "PASS",
+        "amazon_grade": "used_like_new"
+      },
+      "policy_disposition_from_agent_checks": "restock",
+      "actual_agent_disposition": "restock",
+      "consistent": true,
+      "policy_mapping_matches_saved_agent_checks": true,
+      "classification": "match",
+      "mismatch_explanation": null
+    }
+  ]
+}
