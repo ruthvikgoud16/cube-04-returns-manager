@@ -12,7 +12,7 @@ Official hashtags are not printed in the handbook. Use the organiser’s templat
 - [x] Evaluation report: `submissions/ruthvikgoud16/eval-report.md`. Short reading guide: `docs/evaluation.md` and `docs/evaluation.pdf`. History of the build: `docs/project-evolution.md` and `docs/project-evolution.pdf`
 - [x] Demo: https://rtn-returns-manager.vercel.app/demo walks the desk with Start, Next, and Back. It opens the saved RTN-019 and RTN-001 cards and does not call the model. The page is not a video.
 - [x] Deployment URL: https://rtn-returns-manager.vercel.app . The walkthrough is `/demo`. The page serves the desk, `/health` returns the agent, and an unusable photo is saved as `pending_review` without a model call. Live records on that host are in memory and can disappear between requests.
-- [ ] LinkedIn post published from `submissions/ruthvikgoud16/linkedin-post.md`
+- [ ] LinkedIn post published, with CodeQuesters and Sydon.AI tagged, and the live URL pasted into the form. Desk screenshots are in `submissions/ruthvikgoud16/linkedin/`
 - [ ] CodeQuesters tagged on the live post
 - [ ] Sydon.AI tagged on the live post
 - [ ] Official hashtags used
