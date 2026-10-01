@@ -68,4 +68,4 @@ Photos are taken from each product’s `02 — PHOTOS` folder, including images 
 
 ## Not implemented
 
-There is no `POST /v1/captures` and no presigned upload URL. Image bytes for the phone page are posted with the existing `/agent` request. There is no public host. The default store is memory plus files unless `DATABASE_URL` is set.
+There is no `POST /v1/captures` and no presigned upload URL. Image bytes for the phone page are posted with the existing `/agent` request. The public desk is https://rtn-returns-manager.vercel.app . On that host, records stay in memory for the process that handled the request. A local run uses memory plus files unless `DATABASE_URL` is set.

@@ -14,7 +14,7 @@ import { DEMO_ORGS, Disposition, PhotoInput } from "../types";
 
 const PORT = Number(process.env.PORT || 8787);
 const SECRET = process.env.SESSION_SECRET || "dev-only-change-me";
-const ROOT = path.join(__dirname, "..", "..");
+const ROOT = process.cwd();
 
 const REASON_CODES = [
   "photos_insufficient",
@@ -226,19 +226,23 @@ function readCookie(header: string | undefined, name: string): string | null {
   return part ? decodeURIComponent(part.slice(name.length + 1)) : null;
 }
 
-async function main() {
+export function createRuntimeApp() {
   const model = process.env.ANTHROPIC_API_KEY
     ? new ClaudeModel()
     : new FailOpenModel();
   const memory = new MemoryStore();
-  const blobs = new FileBlobStore(memory, path.join(ROOT, process.env.BLOB_DIR || "data/blobs"));
-  let store: Store = blobs;
+  const blobRoot = process.env.VERCEL ? "/tmp/rtn-blobs" : path.join(ROOT, process.env.BLOB_DIR || "data/blobs");
+  let store: Store = new FileBlobStore(memory, blobRoot);
   if (process.env.DATABASE_URL) {
     const pool = new Pool({ connectionString: process.env.DATABASE_URL });
-    store = new FileBlobStore(new PostgresStore(pool), path.join(ROOT, process.env.BLOB_DIR || "data/blobs"));
+    store = new FileBlobStore(new PostgresStore(pool), blobRoot);
   }
-  const app = buildApp({ store, model });
-  await app.listen({ port: PORT, host: "::" });
+  return buildApp({ store, model });
+}
+
+async function main() {
+  const app = createRuntimeApp();
+  await app.listen({ port: PORT, host: "0.0.0.0" });
   console.log(`returns manager http://localhost:${PORT}`);
 }
 

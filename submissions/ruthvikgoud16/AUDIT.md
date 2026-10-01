@@ -8,7 +8,7 @@ An operator desk for one returned unit. The operator names the organisation, the
 
 Identity is visual likeness to the named product. A missing SKU or ASIN stays `UNKNOWN`. A required part that is out of frame is UNCERTAIN, not FAIL. Amazon condition names follow the published used scale. A photograph does not prove that a device functions.
 
-Organisation comes from the signed session, not from the request body. Demo organisations are `org_demo_alpha` and `org_demo_bravo`. Stored records are schema `rtn-0.1-provisional`. `GET /v1/records` is a projection to evidence contract 1.1. There is no presigned upload endpoint and no public host.
+Organisation comes from the signed session, not from the request body. Demo organisations are `org_demo_alpha` and `org_demo_bravo`. Stored records are schema `rtn-0.1-provisional`. `GET /v1/records` is a projection to evidence contract 1.1. There is no presigned upload endpoint. The public desk is https://rtn-returns-manager.vercel.app .
 
 ## Frozen measurement
 
@@ -50,9 +50,9 @@ Against the handbook’s 100 points, this is a judgment, not an official score.
 | Problem understanding | 15 | 12 | Scope, assumptions, and the three checks are written in the README and this audit. |
 | Agent functionality | 25 | 18 | The path works: one call, schema check, policy, fail-open. Condition misses push some units toward restock. |
 | Evaluation and uncertainty | 25 | 17 | Method, false positives, false negatives, and UNCERTAIN are reported. Condition 42.5% is the measured drag. |
-| Evidence and engineering | 20 | 15 | Checks carry verdict, confidence, model, and timing. Overrides keep the old disposition. The stored schema is still provisional. The code is not on the public fork yet. |
-| UX, demo, and links | 15 | 8 | The desk shows the flow, the three rates, and two saved examples. There is no demo video, no public URL, and no live LinkedIn post. |
-| Total | 100 | 70 | Local tree only. A reviewer who opens the GitHub fork today cannot see this build. |
+| Evidence and engineering | 20 | 15 | Checks carry verdict, confidence, model, and timing. Overrides keep the old disposition. The stored schema is still provisional. The implementation is on the public fork. |
+| UX, demo, and links | 15 | 8 | The desk shows the flow, the three rates, and two saved examples, and it is public at https://rtn-returns-manager.vercel.app . There is no demo video and no live LinkedIn post. |
+| Total | 100 | 70 | The score stays 70 because the demo video and the LinkedIn post are still missing. |
 
 ## Desk
 
@@ -60,11 +60,10 @@ Against the handbook’s 100 points, this is a judgment, not an official score.
 
 ## Still required before the form
 
-- Commit and push this tree to `https://github.com/ruthvikgoud16/cube-04-returns-manager`. Until then the fork is not the submission.
 - Record the demo from `demo-script.md`.
 - Publish `linkedin-post.md`, tag CodeQuesters and Sydon.AI, and add the organiser hashtags. Those hashtags are not printed in the handbook.
 - Put the live LinkedIn URL on the form.
-- Add a deployment URL only if a host is actually serving this build.
+- Deployment URL to paste: https://rtn-returns-manager.vercel.app . Fork: https://github.com/ruthvikgoud16/cube-04-returns-manager . Evaluation report path in that fork: `submissions/ruthvikgoud16/eval-report.md`.
 
 The handbook file still says the form closes at 6:00 PM IST on 1 October 2026 and does not reopen. A later note said 11:59. Confirm the time on the form.
 

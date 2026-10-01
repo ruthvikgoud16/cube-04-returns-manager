@@ -11,7 +11,7 @@ Official hashtags are not printed in the handbook. Use the organiser’s templat
 - [x] `ARCHITECTURE.md` describes the current pipeline
 - [x] Evaluation report: `submissions/ruthvikgoud16/eval-report.md`
 - [ ] Demo video recorded from `submissions/ruthvikgoud16/demo-script.md` and placed where the form asks
-- [ ] Deployment URL, if you deploy. There is no public URL in this repo. Local use is `http://localhost:8787`. Leave the form blank or enter a URL only after it actually serves this build
+- [x] Deployment URL: https://rtn-returns-manager.vercel.app . The page serves the desk, `/health` returns the agent, and an unusable photo is saved as `pending_review` without a model call. Live records on that host are in memory and can disappear between requests.
 - [ ] LinkedIn post published from `submissions/ruthvikgoud16/linkedin-post.md`
 - [ ] CodeQuesters tagged on the live post
 - [ ] Sydon.AI tagged on the live post

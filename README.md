@@ -37,13 +37,13 @@ On the 40 agreed cases with valid model output, identity matched 92.5% (37/40), 
 1. The operator opens the phone page, signs in as `org_demo_alpha` or `org_demo_bravo`, and submits photos plus the product name and parts list.
 2. The quality gate drops unusable frames. Usable frames go to one Claude vision call (`claude-sonnet-4-5` unless `ANTHROPIC_MODEL` overrides it). That call grades identity, completeness, and condition together. It does not choose a disposition.
 3. Zod checks the tool output. `policy_v1` then sets the disposition. Any UNCERTAIN check, or an identity mismatch, becomes `pending_review`. Confidence is stored and never turns UNCERTAIN into PASS. `dispose` is not produced.
-4. The capture is stored as an evidence record scoped to the organisation on the session cookie. A model error, a timeout, a bad schema, or no usable photo still saves the record as `pending_review`. The stored schema is `rtn-0.1-provisional`. `GET /v1/records` projects that record into evidence-contract 1.1 for the caller’s organisation. There is no presigned upload endpoint and no public deployment URL in this fork.
+4. The capture is stored as an evidence record scoped to the organisation on the session cookie. A model error, a timeout, a bad schema, or no usable photo still saves the record as `pending_review`. The stored schema is `rtn-0.1-provisional`. `GET /v1/records` projects that record into evidence-contract 1.1 for the caller’s organisation. There is no presigned upload endpoint. The public desk is https://rtn-returns-manager.vercel.app .
 
 Setup is `.env.example`: `ANTHROPIC_API_KEY`, `SESSION_SECRET`, optional `DATABASE_URL`, `PORT` (8787), and `BLOB_DIR`. Without `DATABASE_URL`, records stay in memory and images stay under `BLOB_DIR`. Postgres row-level security is the path in `npm run db:up` and `npm run test:tenancy`.
 
 Assumptions: identity is visual likeness to the named product, not a barcode. A missing SKU or ASIN stays `UNKNOWN`. A required part that is out of frame is UNCERTAIN, not FAIL. Amazon condition names follow the published used scale, and a photo does not prove that a device functions.
 
-Limits: condition matching on the 40 cases is 42.5%. The result does not show that the same rates would hold on another set. Three evaluation folders contained no images. The app is a local operator desk, not a warehouse deployment.
+Limits: condition matching on the 40 cases is 42.5%. The result does not show that the same rates would hold on another set. Three evaluation folders contained no images. The public desk keeps records in memory on the host that answered the request, so a later visit can start empty. Local use is `http://localhost:8787`.
 
 ---
 

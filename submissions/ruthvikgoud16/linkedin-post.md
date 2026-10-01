@@ -11,7 +11,7 @@ When a returned unit comes back, someone has to decide whether it is the item th
 On 40 agreed evaluation cases with valid model output, identity matched at 92.5%, completeness at 75.0%, while condition classification remained the largest challenge at 42.5%. Condition errors were usually one step on Amazon’s used scale, most often Like New where both labelers said Very Good. Disposition was not human-labeled, so I am not reporting a disposition accuracy. Three of the 50 units had no image files in the photo folders, so they were not graded. Seven more were excluded because the two labelers disagreed.
 
 Fork: https://github.com/ruthvikgoud16/cube-04-returns-manager
-Deployment URL: [not deployed — add the URL here if one exists]
+Deployment URL: https://rtn-returns-manager.vercel.app
 
 CodeQuesters
 Sydon.AI
