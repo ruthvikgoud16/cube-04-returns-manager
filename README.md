@@ -24,6 +24,8 @@ On this evaluation set, and only this set: identity 37/40 (92.5%), completeness 
 
 This is an operator desk for the buildathon, not a claim that the same rates would hold in a warehouse. A reviewer walkthrough of the two saved cards is at https://rtn-returns-manager.vercel.app/demo . Next and Back move the desk. Opening RTN-019 and RTN-001 does not call the model.
 
+The 50 products and their photographs are in the RTN collection on Google Drive: https://drive.google.com/drive/folders/1R8sk5n_OCvtidlbkyiL0IT6NBZpjT86Q . Each product folder holds the images used for that case, including files placed in `02 — PHOTOS`. RTN-017, RTN-026, and RTN-032 have no image files in that photos folder. The grades in this repository were read from those photographs. Opening the Drive folder does not run the model again.
+
 ```sh
 npm install
 npm test
