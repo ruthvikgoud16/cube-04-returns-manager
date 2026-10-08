@@ -122,10 +122,10 @@ export function buildApp(deps: AppDeps) {
   async function runRound3(request: { body: unknown }, reply: { code: (n: number) => { send: (b: unknown) => unknown } }) {
     const body = request.body as Round3AgentInput;
     if (!body?.request_id || !body?.workflow_id || !body?.subject?.org_id || !body?.subject?.subject_id) {
-      return reply.code(400).send({ error: "request_id, workflow_id, subject.org_id, subject.subject_id required" });
+      return reply.code(422).send({ error: "request_id, workflow_id, subject.org_id, subject.subject_id required" });
     }
     if (body.stage && body.stage !== "returns") {
-      return reply.code(400).send({ error: "stage must be returns" });
+      return reply.code(422).send({ error: "stage must be returns" });
     }
     if (!DEMO_ORGS.includes(body.subject.org_id as (typeof DEMO_ORGS)[number])) {
       return reply.code(404).send({ error: "unknown tenant" });
