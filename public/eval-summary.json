@@ -1,0 +1,79 @@
+{
+  "cases": 50,
+  "graded": 47,
+  "scored": 40,
+  "no_photo": ["RTN-017", "RTN-026", "RTN-032"],
+  "identity_rate": "92.5%",
+  "completeness_rate": "75.0%",
+  "condition_rate": "42.5%",
+  "rates": [
+    {
+      "check": "Identity",
+      "match": "37/40",
+      "rate": "92.5%",
+      "notes": "0 FP · 0 FN"
+    },
+    {
+      "check": "Completeness",
+      "match": "30/40",
+      "rate": "75.0%",
+      "notes": "2 FP (RTN-046, RTN-049)"
+    },
+    {
+      "check": "Condition",
+      "match": "17/40",
+      "rate": "42.5%",
+      "notes": "Usually one step high on Amazon used scale"
+    }
+  ],
+  "sample_outcomes": [
+    {
+      "case_id": "RTN-019",
+      "disposition": "restock",
+      "identity": "PASS",
+      "completeness": "PASS",
+      "condition": "PASS",
+      "amazon_grade": "used_very_good"
+    },
+    {
+      "case_id": "RTN-001",
+      "disposition": "pending_review",
+      "identity": "PASS",
+      "completeness": "UNCERTAIN",
+      "condition": "PASS",
+      "amazon_grade": "used_very_good"
+    },
+    {
+      "case_id": "RTN-007",
+      "disposition": "refurbish",
+      "identity": "PASS",
+      "completeness": "PASS",
+      "condition": "PASS",
+      "amazon_grade": "used_good"
+    },
+    {
+      "case_id": "RTN-008",
+      "disposition": "pending_review",
+      "identity": "PASS",
+      "completeness": "UNCERTAIN",
+      "condition": "PASS",
+      "amazon_grade": "used_like_new"
+    },
+    {
+      "case_id": "RTN-046",
+      "disposition": "restock",
+      "identity": "PASS",
+      "completeness": "PASS",
+      "condition": "PASS",
+      "amazon_grade": "used_like_new"
+    },
+    {
+      "case_id": "RTN-049",
+      "disposition": "restock",
+      "identity": "PASS",
+      "completeness": "PASS",
+      "condition": "PASS",
+      "amazon_grade": "used_very_good"
+    }
+  ]
+}

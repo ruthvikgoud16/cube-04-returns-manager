@@ -3,327 +3,146 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Returns Manager</title>
-  <style>
-    :root { color-scheme: light; --ink:#1c2430; --muted:#5c6570; --line:#d9d1c4; --paper:#f4efe6; --card:#fffdf8; --mark:#1f4d3a; --ok:#1f4d3a; --hold:#8a4b12; --bad:#8e2f3a; }
-    * { box-sizing: border-box; }
-    body { margin:0; font:16px/1.5 "Avenir Next", "Segoe UI", sans-serif; color:var(--ink); background:var(--paper); }
-    .nav { border-bottom:1px solid var(--line); background:transparent; }
-    .nav-inner, main { max-width:1080px; margin:0 auto; padding:0 20px; }
-    .nav-inner { display:flex; align-items:flex-end; justify-content:space-between; gap:16px; min-height:72px; padding-top:16px; padding-bottom:12px; }
-    .brand { font:600 28px/1 "Iowan Old Style", Palatino, Georgia, serif; letter-spacing:-0.03em; }
-    .brand span { display:block; margin-top:4px; font:12px/1.2 "Avenir Next", "Segoe UI", sans-serif; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); }
-    #who { font-size:13px; color:var(--muted); }
-    main { padding:20px 20px 48px; }
-    h2 { font:600 18px/1.2 "Iowan Old Style", Palatino, Georgia, serif; margin:22px 0 8px; }
-    p { margin:8px 0; }
-    button, input, textarea, select { font:15px/1.35 "Avenir Next", "Segoe UI", sans-serif; }
-    button { background:var(--mark); color:#f7f3ea; border:0; border-radius:999px; padding:11px 16px; cursor:pointer; }
-    button.ghost { background:transparent; color:var(--ink); border:1px solid var(--line); }
-    .row { display:flex; gap:8px; flex-wrap:wrap; }
-    label { display:block; margin:12px 0 4px; font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); }
-    input, textarea, select { width:100%; padding:11px 12px; border:0; border-bottom:1px solid var(--line); border-radius:0; background:transparent; color:var(--ink); }
-    input:focus, textarea:focus, select:focus { outline:none; border-bottom-color:var(--mark); }
-    .panel { background:var(--card); border:1px solid var(--line); border-radius:18px; padding:18px; }
-    .layout { display:grid; grid-template-columns:minmax(280px, 400px) 1fr; gap:18px; align-items:start; margin-top:18px; }
-    .scores { display:grid; grid-template-columns:repeat(3, 1fr); gap:12px; }
-    .score { background:var(--card); border-radius:18px; padding:14px 16px; border-top:4px solid var(--mark); }
-    .score b { display:block; font:600 32px/1 "Iowan Old Style", Palatino, Georgia, serif; margin:6px 0; }
-    .score span, .meta { color:var(--muted); font-size:13px; }
-    .score.weak { border-top-color:var(--hold); }
-    .score.weak b { color:var(--hold); }
-    .verdict { font-size:13px; font-weight:700; letter-spacing:.04em; }
-    .PASS, .restock { color:var(--ok); }
-    .FAIL { color:var(--bad); }
-    .UNCERTAIN, .pending_review, .hold, .refurbish, .liquidate { color:var(--hold); }
-    .pill { display:inline-block; border-radius:999px; padding:4px 10px; background:#efe6d6; }
-    .checks { display:grid; grid-template-columns:repeat(3, 1fr); gap:10px; margin:12px 0; }
-    .check { border-radius:14px; padding:12px; background:#f7f1e6; }
-    .check strong { display:block; font-family:"Iowan Old Style", Palatino, Georgia, serif; font-size:16px; margin-bottom:4px; }
-    .photos img, .shots img { width:76px; height:76px; object-fit:cover; border-radius:12px; margin:0 8px 8px 0; background:#efe6d6; }
-    .error { color:var(--bad); }
-    pre { white-space:pre-wrap; word-break:break-word; font:12px/1.45 ui-monospace, monospace; background:#f7f1e6; padding:12px; border-radius:12px; }
-    #history button { display:block; width:100%; text-align:left; margin-top:8px; }
-    #result[hidden], #desk[hidden], #login[hidden] { display:none; }
-    @media (max-width: 800px) {
-      .layout, .checks, .scores { grid-template-columns:1fr; }
-      .brand { font-size:24px; }
-    }
-  </style>
+  <title>RTN · Returns Desk</title>
+  <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
-  <header class="nav">
-    <div class="nav-inner">
-      <div class="brand">RTN<span>Returns desk</span></div>
-      <div id="who">Choose an organisation</div>
-    </div>
-  </header>
-  <main>
-    <section id="login" class="panel">
-      <p>Choose the organisation on this desk. Records and photos for the other organisation stay closed.</p>
+  <div class="shell">
+    <nav class="nav">
+      <div class="brand">RTN <span>Returns</span> <em class="tag">Pod 4</em></div>
+      <a class="active" href="/">Desk</a>
+      <a href="/evaluation">Evaluation</a>
+      <a href="/failures">Failures</a>
+      <a href="/about">About</a>
+      <a href="/demo">Walkthrough</a>
+      <span class="who" id="who">Choose organisation</span>
+    </nav>
+
+    <section id="login" class="panel login-panel fade-in">
+      <h1>RTN Returns</h1>
+      <p class="lede">One vision call. Three checks. policy_v1 chooses disposition — the model never does.</p>
+      <p class="meta">Records and photos stay inside the organisation you pick.</p>
       <div class="row">
-        <button type="button" onclick="enterOrg('org_demo_alpha')">org_demo_alpha</button>
-        <button type="button" class="ghost" onclick="enterOrg('org_demo_bravo')">org_demo_bravo</button>
+        <button type="button" id="btnAlpha">org_demo_alpha</button>
+        <button type="button" class="ghost" id="btnBravo">org_demo_bravo</button>
       </div>
     </section>
+
     <section id="desk" hidden>
-      <div class="scores" aria-label="Held-out evaluation">
-        <div class="score"><span>Identity · 40 agreed</span><b>92.5%</b><span>37/40 · 0 false positives</span></div>
-        <div class="score"><span>Completeness · 40 agreed</span><b>75.0%</b><span>30/40 · 2 false positives</span></div>
-        <div class="score weak"><span>Condition · 40 agreed</span><b>42.5%</b><span>17/40 · not an overall accuracy</span></div>
-      </div>
-      <div class="layout">
-        <div>
+      <header class="hero fade-in">
+        <h1>Returns desk</h1>
+        <p class="lede">Photos in → one Claude call → Zod → policy_v1. Identity, completeness, condition. UNCERTAIN is never a pass.</p>
+        <div class="mode-bar">
+          <b>Amazon used scale</b>
+          <span>·</span>
+          Fail-open → pending_review
+          <span>·</span>
+          content_hash is not a seal
+        </div>
+      </header>
+
+      <div class="workspace fade-in">
+        <aside class="stack">
           <form id="capture" class="panel">
-            <p class="meta">1. Name the unit. 2. Add photos. 3. One model call grades the three checks. 4. policy_v1 sets the disposition.</p>
-            <label>Order id</label>
+            <h2>Capture</h2>
+            <p class="meta">Name the unit, attach photos, grade once.</p>
+            <label class="field">Order id</label>
             <input name="order_id" required placeholder="ORD-1001">
-            <label>Unit id</label>
+            <label class="field">Unit id</label>
             <input name="unit_id" required placeholder="UNIT-1001">
-            <label>Ordered SKU</label>
-            <input name="ordered_sku" required placeholder="UNKNOWN if it is not printed">
-            <label>Ordered ASIN</label>
-            <input name="ordered_asin" required placeholder="UNKNOWN if it is not printed">
-            <label>Product name</label>
+            <label class="field">Ordered SKU</label>
+            <input name="ordered_sku" required placeholder="UNKNOWN if not printed">
+            <label class="field">Ordered ASIN</label>
+            <input name="ordered_asin" required placeholder="UNKNOWN if not printed">
+            <label class="field">Product name</label>
             <input name="product_name" required placeholder="What was sold">
-            <label>Required parts, one per line</label>
+            <label class="field">Required parts, one per line</label>
             <textarea name="parts" rows="3" placeholder="lamp&#10;usb cable&#10;manual"></textarea>
-            <label>Photographs of the unit</label>
+            <label class="field">Photographs</label>
             <input name="photos" type="file" accept="image/*" capture="environment" multiple required>
-            <div class="photos" id="previews"></div>
+            <div class="previews" id="previews"></div>
             <p id="frameNote" class="meta"></p>
-            <button type="submit">Grade this return</button>
+            <div class="row">
+              <button type="submit" id="gradeBtn">Grade this return</button>
+            </div>
             <p class="error" id="formError"></p>
+            <p class="busy" id="busy" hidden><span class="spinner"></span> One model call in flight…</p>
           </form>
-          <h2>Saved evaluation examples</h2>
-          <p class="meta">These two are already graded. Opening them does not call the model again.</p>
-          <div class="row">
-            <button type="button" class="ghost" id="show-019">RTN-019 · restock</button>
-            <button type="button" class="ghost" id="show-001">RTN-001 · pending review</button>
-          </div>
-        </div>
-        <div>
-          <article id="result" class="panel" hidden></article>
-          <h2>This organisation’s records</h2>
-          <div id="history"></div>
-        </div>
+
+          <section class="panel">
+            <h2>Frozen examples</h2>
+            <p class="meta">Saved evaluation cards. Opening them does not call the model.</p>
+            <div class="row">
+              <button type="button" class="ghost" id="show-019">RTN-019 · restock</button>
+              <button type="button" class="ghost" id="show-001">RTN-001 · hold</button>
+            </div>
+          </section>
+
+          <section class="panel">
+            <h2>This organisation</h2>
+            <div class="history" id="history"></div>
+          </section>
+        </aside>
+
+        <main class="stack">
+          <section class="panel" id="resultPanel" hidden>
+            <div id="verdictSlot"></div>
+            <div class="po-strip" id="poStrip"></div>
+          </section>
+
+          <section class="panel" id="checksWrap">
+            <div class="panel-head">
+              <h2>Checks</h2>
+              <span class="meta" id="checkSummary">Awaiting grade</span>
+            </div>
+            <div class="checks" id="checks">
+              <p class="meta">Grade a return or open a frozen example. Result shows disposition and checks — not raw contract JSON.</p>
+            </div>
+            <div class="parts-grid" id="partsGrid"></div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-head">
+              <h2>Evidence photos</h2>
+              <button type="button" class="ghost" id="toggleJson" style="padding:8px 12px;font-size:12px">Integrator JSON</button>
+            </div>
+            <div class="shots" id="resultShots"></div>
+            <p class="meta" style="margin-top:12px">Content hash <code class="mono" id="hashText">—</code>
+              <button type="button" class="ghost" id="copyHash" style="padding:4px 10px;margin-left:8px">Copy</button>
+            </p>
+            <p class="meta">It shows whether this copy changed. It is not a seal.</p>
+            <div id="overrideLog"></div>
+            <form id="override" class="override" hidden>
+              <label class="field">If this is wrong, keep the original and record a correction</label>
+              <div class="row">
+                <select name="revised_disposition">
+                  <option>restock</option><option>refurbish</option><option>liquidate</option><option>dispose</option><option>pending_review</option>
+                </select>
+                <select name="reason_code">
+                  <option value="photos_insufficient">photos insufficient</option>
+                  <option value="identity_wrong">identity wrong</option>
+                  <option value="parts_wrong">parts wrong</option>
+                  <option value="condition_wrong">condition wrong</option>
+                  <option value="disposition_wrong">disposition wrong</option>
+                  <option value="other">other</option>
+                </select>
+                <input name="reason" required placeholder="Why you changed it">
+                <button type="submit">Save override</button>
+              </div>
+            </form>
+            <pre class="dump" id="jsonDump" hidden></pre>
+          </section>
+        </main>
       </div>
     </section>
-  </main>
-  <script>
-    const login = document.querySelector("#login");
-    const desk = document.querySelector("#desk");
-    const who = document.querySelector("#who");
-    const EXAMPLES = {
-      "RTN-019": {
-        title: "RTN-019 · NOVA hair straightener",
-        disposition: "restock",
-        grade: "used_very_good",
-        note: "Saved evaluation. Not a new model call. Both labelers agreed: identity PASS, completeness PASS, condition Very Good. policy_v1 restocked a complete Very Good unit.",
-        checks: [
-          ["identity", "PASS", "Looks like the named NOVA hair straightener."],
-          ["completeness", "PASS", "Straightener, cord, and NOVA box were visible to both labelers."],
-          ["condition", "PASS", "Amazon grade used_very_good, same as both labelers."]
-        ]
-      },
-      "RTN-001": {
-        title: "RTN-001 · Samsung Book laptop",
-        disposition: "pending_review",
-        grade: "used_very_good",
-        note: "Saved evaluation. Not a new model call. Identity passed. Completeness stayed UNCERTAIN because the adapter and box were not clearly shown. UNCERTAIN is not a pass, so policy_v1 held it.",
-        checks: [
-          ["identity", "PASS", "Both labelers also said the laptop matched."],
-          ["completeness", "UNCERTAIN", "A cable is visible. The adapter and box are not clear."],
-          ["condition", "PASS", "Amazon grade used_very_good, same as both labelers."]
-        ]
-      }
-    };
-    let org = "";
+  </div>
 
-    async function enterOrg(organization_id) {
-      const res = await fetch("/session", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        credentials: "same-origin",
-        body: JSON.stringify({ organization_id })
-      });
-      if (!res.ok) return;
-      org = organization_id;
-      who.textContent = org;
-      login.hidden = true;
-      desk.hidden = false;
-      document.querySelector("#history").textContent = "";
-      await loadHistory();
-    }
+  <div class="lightbox" id="lightbox" hidden>
+    <button type="button" id="lbClose">Close</button>
+    <img id="lbImg" alt="Return photo">
+  </div>
 
-    document.querySelector("#show-019").onclick = () => showSaved("RTN-019");
-    document.querySelector("#show-001").onclick = () => showSaved("RTN-001");
-
-    document.querySelector("input[name=photos]").addEventListener("change", (event) => {
-      const box = document.querySelector("#previews");
-      box.innerHTML = "";
-      const files = [...event.target.files].slice(0, 8);
-      const notes = [];
-      for (const file of files) {
-        const img = document.createElement("img");
-        img.src = URL.createObjectURL(file);
-        img.onload = () => {
-          if (img.naturalWidth < 480 || img.naturalHeight < 480) notes.push(file.name + " is too small to grade");
-          document.querySelector("#frameNote").textContent = notes.join(". ");
-        };
-        box.appendChild(img);
-      }
-    });
-
-    document.querySelector("#capture").addEventListener("submit", async (event) => {
-      event.preventDefault();
-      const form = event.target;
-      const error = document.querySelector("#formError");
-      error.textContent = "Grading. One model call.";
-      const files = [...form.photos.files].slice(0, 8);
-      const photos = [];
-      for (const file of files) {
-        photos.push({ filename: file.name, media_type: file.type || "image/jpeg", data_base64: await fileToBase64(file) });
-      }
-      const res = await fetch("/agent", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        credentials: "same-origin",
-        body: JSON.stringify({
-          order_id: form.order_id.value,
-          unit_id: form.unit_id.value,
-          ordered_sku: form.ordered_sku.value,
-          ordered_asin: form.ordered_asin.value,
-          product_name: form.product_name.value,
-          parts_list: form.parts.value.split("\n").map((s) => s.trim()).filter(Boolean),
-          operator_label: "desk",
-          photos
-        })
-      });
-      const record = await res.json();
-      error.textContent = res.ok ? "" : (record.error || "Could not grade");
-      if (!res.ok) return;
-      showRecord(record);
-      loadHistory();
-    });
-
-    function showSaved(id) {
-      const example = EXAMPLES[id];
-      const box = document.querySelector("#result");
-      box.hidden = false;
-      box.innerHTML = `
-        <p class="meta">${escapeHtml(example.title)}</p>
-        <p class="pill verdict ${example.disposition}">${escapeHtml(example.disposition)}</p>
-        <p>${escapeHtml(example.note)}</p>
-        <div class="checks">${example.checks.map(([key, verdict, detail]) => `
-          <div class="check"><strong>${escapeHtml(key)}</strong><span class="verdict ${verdict}">${escapeHtml(verdict)}</span><p class="meta">${escapeHtml(detail)}</p></div>
-        `).join("")}</div>
-        <p class="meta">Amazon condition ${escapeHtml(example.grade)}. This card is from the frozen 50-case file.</p>`;
-    }
-
-    function showRecord(record) {
-      const box = document.querySelector("#result");
-      box.hidden = false;
-      const checks = record.checks.map((check) => `
-        <div class="check">
-          <strong>${escapeHtml(check.check_key)}</strong>
-          <span class="verdict ${check.verdict}">${escapeHtml(check.verdict)}</span>
-          <p class="meta">${check.confidence == null ? "No confidence" : "Confidence " + escapeHtml(check.confidence)} · ${escapeHtml(check.model_version || "no model")} · ${check.latency_ms == null ? "no timing" : escapeHtml(check.latency_ms) + " ms"}</p>
-          <p>${escapeHtml(check.detail)}</p>
-        </div>`).join("");
-      const parts = (name, list) => `<p class="meta">${name}: ${list && list.length ? escapeHtml(list.join(", ")) : "none"}</p>`;
-      const shots = (record.images || []).map((image) => `<img alt="${escapeHtml(image.quality)}" src="/images/${image.key}">`).join("");
-      const overrides = (record.overrides || []).map((entry) =>
-        `<p class="meta">${escapeHtml(entry.at)} · ${escapeHtml(entry.original_disposition)} → ${escapeHtml(entry.revised_disposition)} · ${escapeHtml(entry.reason)}</p>`
-      ).join("");
-      const hold = record.outcome.disposition === "pending_review"
-        ? `<p class="hold">Held for a person. UNCERTAIN is not a pass, and a failed call is not a restock.</p>` : "";
-      box.innerHTML = `
-        <p class="meta">${escapeHtml(record.subject.product_name)} · ${escapeHtml(record.subject.unit_id)} · ${escapeHtml(record.organization_id)}</p>
-        <p class="pill verdict ${record.outcome.disposition}">${escapeHtml(record.outcome.disposition)}</p>
-        ${hold}
-        <p>${escapeHtml(record.outcome.rationale)}</p>
-        ${record.failure ? `<p class="error">${escapeHtml(record.failure)}</p>` : ""}
-        <p class="meta">${escapeHtml(record.outcome.policy_version)} chose the disposition. The model only graded the three checks. Calls: ${escapeHtml(record.inference_call_count)}.</p>
-        <div class="checks">${checks}</div>
-        <p>Amazon condition ${escapeHtml(record.returns.amazon_condition)}. Status ${escapeHtml(record.status)}.</p>
-        ${parts("Seen", record.returns.parts_seen)}
-        ${parts("Missing", record.returns.parts_missing)}
-        ${parts("Not in frame", record.returns.parts_not_in_frame)}
-        <div class="shots">${shots}</div>
-        <p class="meta">Captured ${escapeHtml(record.captured_at)} by ${escapeHtml(record.operator_label)}. Record ${escapeHtml(record.record_id)}.</p>
-        <p class="meta">Content hash ${escapeHtml(record.content_hash)}. It shows whether this copy changed. It is not a seal.</p>
-        ${overrides}
-        <p><button type="button" class="ghost" id="contract">Show the contract record</button></p>
-        <pre id="contractBody" hidden></pre>
-        <form id="override">
-          <label>If this is wrong, keep the original and record a correction</label>
-          <select name="revised_disposition">
-            <option>restock</option><option>refurbish</option><option>liquidate</option><option>dispose</option><option>pending_review</option>
-          </select>
-          <select name="reason_code">
-            <option value="photos_insufficient">photos insufficient</option>
-            <option value="identity_wrong">identity wrong</option>
-            <option value="parts_wrong">parts wrong</option>
-            <option value="condition_wrong">condition wrong</option>
-            <option value="disposition_wrong">disposition wrong</option>
-            <option value="other">other</option>
-          </select>
-          <input name="reason" required placeholder="Why you changed it">
-          <button type="submit">Save override</button>
-        </form>`;
-      box.querySelector("#contract").onclick = async () => {
-        const view = box.querySelector("#contractBody");
-        const res = await fetch("/v1/records/" + record.record_id, { credentials: "same-origin" });
-        view.hidden = false;
-        view.textContent = JSON.stringify(await res.json(), null, 2);
-      };
-      box.querySelector("#override").onsubmit = async (event) => {
-        event.preventDefault();
-        const form = event.target;
-        const res = await fetch("/records/" + record.record_id + "/override", {
-          method: "POST",
-          headers: { "content-type": "application/json" },
-          credentials: "same-origin",
-          body: JSON.stringify({
-            revised_disposition: form.revised_disposition.value,
-            reason_code: form.reason_code.value,
-            reason: form.reason.value,
-            operator_label: "desk"
-          })
-        });
-        showRecord(await res.json());
-        loadHistory();
-      };
-    }
-
-    async function loadHistory() {
-      const res = await fetch("/records", { credentials: "same-origin" });
-      const rows = await res.json();
-      const box = document.querySelector("#history");
-      box.innerHTML = "";
-      for (const row of rows) {
-        const button = document.createElement("button");
-        button.className = "ghost";
-        button.type = "button";
-        button.textContent = `${row.subject.unit_id} · ${row.outcome.disposition} · ${row.record_id}`;
-        button.onclick = () => showRecord(row);
-        box.appendChild(button);
-      }
-    }
-
-    function fileToBase64(file) {
-      return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onload = () => resolve(String(reader.result).split(",")[1]);
-        reader.onerror = reject;
-        reader.readAsDataURL(file);
-      });
-    }
-
-    function escapeHtml(value) {
-      return String(value).replace(/[&<>"]/g, (ch) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[ch]));
-    }
-  </script>
+  <script src="/static/app.js"></script>
+  <script>ReturnsDesk.init();</script>
 </body>
 </html>

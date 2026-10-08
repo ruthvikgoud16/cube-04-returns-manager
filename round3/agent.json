@@ -1,0 +1,11 @@
+{
+  "stage": "returns",
+  "agent_id": "returns-manager@0.1.0",
+  "owner": "@ruthvikgoud16",
+  "mode": "http",
+  "url": "http://localhost:8787",
+  "path_run": "/v1/run",
+  "path_health": "/health",
+  "implementation": "Claude one batched vision call + Zod + policy_v1; fail-open pending_review; Round 3 Agent Output via /v1/run",
+  "notes": "Copy this file into the Pod repo agents/returns/agent.json and point url at the deployed Returns service. If the starter expects POST /run, add a one-line proxy or Python forwarder."
+}

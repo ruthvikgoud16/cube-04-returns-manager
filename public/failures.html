@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Failures · RTN Returns</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div class="shell">
+    <nav class="nav">
+      <div class="brand">RTN <span>Returns</span> <em class="tag">Pod 4</em></div>
+      <a href="/">Desk</a>
+      <a href="/evaluation">Evaluation</a>
+      <a class="active" href="/failures">Failures</a>
+      <a href="/about">About</a>
+      <a href="/demo">Walkthrough</a>
+    </nav>
+
+    <header class="hero fade-in">
+      <h1>Failures</h1>
+      <p class="lede">Where the agent disagreed with agreed humans on the frozen set. Condition is the weak check — usually one step high on Amazon’s used scale.</p>
+    </header>
+
+    <section class="panel fade-in">
+      <h2>Known hard paths</h2>
+      <div id="failList" class="meta">Loading…</div>
+    </section>
+
+    <section class="panel fade-in">
+      <h2>What is not a miss</h2>
+      <ul class="meta">
+        <li><b>UNCERTAIN ≠ PASS</b> — policy_v1 correctly holds pending_review</li>
+        <li><b>No photo folders</b> — RTN-017, RTN-026, RTN-032 were not graded</li>
+        <li><b>Human disagreements</b> — excluded from every rate (7 cases)</li>
+        <li><b>Disposition</b> — not human-labeled; consistency ≠ accuracy</li>
+      </ul>
+    </section>
+  </div>
+  <script src="/static/app.js"></script>
+  <script>ReturnsFailures.init();</script>
+</body>
+</html>

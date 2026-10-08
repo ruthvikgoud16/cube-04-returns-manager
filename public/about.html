@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About · RTN Returns</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div class="shell">
+    <nav class="nav">
+      <div class="brand">RTN <span>Returns</span> <em class="tag">Pod 4</em></div>
+      <a href="/">Desk</a>
+      <a href="/evaluation">Evaluation</a>
+      <a href="/failures">Failures</a>
+      <a class="active" href="/about">About</a>
+      <a href="/demo">Walkthrough</a>
+    </nav>
+
+    <header class="hero fade-in">
+      <h1>RTN Returns</h1>
+      <p class="lede">Pod 4 · Round 3 ready. Agent Input → one vision call → Zod → policy_v1 → Evidence RTN-*. Fail-open. unit_scope=unit.</p>
+    </header>
+
+    <div class="grid-3">
+      <section class="panel fade-in">
+        <h2>Contract</h2>
+        <p class="meta">POST <span class="mono">/v1/run</span> (also <span class="mono">/run</span>) with Evidence Contract Agent Input. Desk uses <span class="mono">/agent</span> with a session cookie. Orgs: org_demo_alpha / org_demo_bravo. Desk UI is for operators — JSON is for the orchestrator.</p>
+      </section>
+      <section class="panel fade-in">
+        <h2>Rules</h2>
+        <p class="meta">One model call grades identity, completeness, and condition together. It does not choose disposition. Confidence never turns UNCERTAIN into PASS. Missing SKU/ASIN stays UNKNOWN.</p>
+      </section>
+      <section class="panel fade-in">
+        <h2>Amazon grades</h2>
+        <p class="meta">Condition names follow Amazon’s used scale. Do not invent a scale. Do not claim function from a photo.</p>
+      </section>
+    </div>
+
+    <section class="panel fade-in">
+      <h2>Pipeline</h2>
+      <pre class="dump">Agent Input / desk capture
+  → tenancy (org cookie or subject.org_id)
+  → quality gate on photos
+  → ONE Claude observation (facts only)
+  → Zod schema validate
+  → policy_v1 (disposition)
+  → Evidence Record · content_hash
+  → Agent Output (fail-open → pending_review)</pre>
+    </section>
+
+    <section class="panel fade-in">
+      <h2>Docs</h2>
+      <p class="meta">
+        <a href="/docs/evaluation.md">Evaluation</a> ·
+        <a href="/docs/evaluation.pdf">evaluation.pdf</a> ·
+        <a href="/docs/ROUND3-ADAPTER.md">Round 3 adapter</a> ·
+        <a href="/docs/project-evolution.md">Project evolution</a>
+      </p>
+    </section>
+  </div>
+</body>
+</html>

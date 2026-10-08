@@ -1,0 +1,46 @@
+{
+  "failures": [
+    {
+      "id": "Condition band",
+      "title": "23 mismatches on 40",
+      "kind": "condition",
+      "detail": "14× human Very Good / agent Like New. 4× human Good / agent Very Good. 4× human Like New / agent Very Good. Usual miss is one step high on Amazon’s used scale."
+    },
+    {
+      "id": "RTN-046 / RTN-049",
+      "title": "Completeness false positives",
+      "kind": "completeness FP",
+      "detail": "Both labelers said FAIL. RTN-046 does not show cable, adapter, and box. RTN-049 does not show the remote. Agent said PASS."
+    },
+    {
+      "id": "RTN-028",
+      "title": "Identity UNCERTAIN vs human PASS",
+      "kind": "identity",
+      "detail": "Agent UNCERTAIN, humans PASS. Not counted as FP/FN."
+    },
+    {
+      "id": "RTN-010 / RTN-049",
+      "title": "Identity PASS vs human UNCERTAIN",
+      "kind": "identity",
+      "detail": "Watch/box colour mismatch notes on RTN-010. Boxed fan parts vs mounted fan on RTN-049."
+    },
+    {
+      "id": "Completeness UNCERTAIN edges",
+      "title": "Several one-sided UNCERTAIN",
+      "kind": "completeness",
+      "detail": "Human UNCERTAIN / agent PASS: RTN-016, 021, 023, 038. Human PASS / agent UNCERTAIN: RTN-004, 025. Human FAIL / agent UNCERTAIN: RTN-008, 045."
+    },
+    {
+      "id": "No photo",
+      "title": "RTN-017, RTN-026, RTN-032",
+      "kind": "ingestion",
+      "detail": "Zero image files in the listed photo folders. Not model results. Excluded from the scored 40."
+    },
+    {
+      "id": "Human disagreements",
+      "title": "7 cases excluded from every rate",
+      "kind": "labelers",
+      "detail": "RTN-002, 005, 006, 009, 013, 037, 044. Labelers disagreed — not scored as agent errors."
+    }
+  ]
+}

@@ -14,6 +14,10 @@
 
 ruthvikgoud16. One Claude vision call grades identity, completeness, and condition. `policy_v1` chooses the disposition afterwards. A bad frame or a failed call is saved as `pending_review`. It is not dropped, and it is not restocked.
 
+### Round 3 readiness
+
+This agent is integration-ready for the Pod starter. `POST /v1/run` and `POST /run` accept Round 3 Agent Input and return Agent Output (Evidence Record v1.0), fail-open. Desk UI shows the evidence trail and a Round 3 output preview. Details: [`docs/ROUND3-ADAPTER.md`](docs/ROUND3-ADAPTER.md). Copy helpers live in [`round3/`](round3/).
+
 ### Read this in two minutes
 
 A returned unit is photographed. The operator names the product and the required parts. The agent answers three checks from the photos: is it the named item, are the required parts shown, and which Amazon used grade fits what is visible. It does not choose restock or review. A fixed rule, `policy_v1`, does that after the checks validate. If any check is UNCERTAIN, or the model call fails, the capture is saved for a person. UNCERTAIN is not a pass.

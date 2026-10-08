@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Evaluation · RTN Returns</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div class="shell">
+    <nav class="nav">
+      <div class="brand">RTN <span>Returns</span> <em class="tag">Pod 4</em></div>
+      <a href="/">Desk</a>
+      <a class="active" href="/evaluation">Evaluation</a>
+      <a href="/failures">Failures</a>
+      <a href="/about">About</a>
+      <a href="/demo">Walkthrough</a>
+    </nav>
+
+    <header class="hero fade-in">
+      <h1>Evaluation</h1>
+      <p class="lede">Frozen held-out set. Rishik Goud + Lasya labeled before scoring. Primary rates use the 40 cases where both agreed and the model graded. Not an overall accuracy claim.</p>
+    </header>
+
+    <div class="stat-row fade-in" id="stats"></div>
+
+    <section class="panel fade-in">
+      <h2>Primary rates (40 agreed + graded)</h2>
+      <table>
+        <thead>
+          <tr><th>Check</th><th>Match</th><th>Rate</th><th>Notes</th></tr>
+        </thead>
+        <tbody id="ratesBody"></tbody>
+      </table>
+    </section>
+
+    <section class="panel fade-in">
+      <h2>Sample outcomes from freeze</h2>
+      <table>
+        <thead>
+          <tr><th>Case</th><th>Disposition</th><th>Identity</th><th>Completeness</th><th>Condition</th><th>Amazon grade</th></tr>
+        </thead>
+        <tbody id="casesBody"></tbody>
+      </table>
+    </section>
+
+    <section class="panel fade-in">
+      <h2>Documents</h2>
+      <p class="meta">
+        <a href="/docs/evaluation.md">evaluation.md</a> ·
+        <a href="/docs/evaluation.pdf">evaluation.pdf</a> ·
+        <a href="/docs/project-evolution.md">project-evolution.md</a> ·
+        <a href="/docs/project-evolution.pdf">project-evolution.pdf</a> ·
+        <a href="/eval/disposition-policy-consistency.json">disposition consistency</a>
+      </p>
+    </section>
+  </div>
+  <script src="/static/app.js"></script>
+  <script>ReturnsEval.init();</script>
+</body>
+</html>
